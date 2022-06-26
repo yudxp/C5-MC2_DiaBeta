@@ -115,10 +115,10 @@
             </objects>
             <point key="canvasLocation" x="-1199" y="1819"/>
         </scene>
-        <!--Food Detail View Controller-->
+        <!--Food View Controller-->
         <scene sceneID="Ylg-IO-hky">
             <objects>
-                <viewController id="3bC-yi-zV6" customClass="FoodDetailViewController" customModule="DiaBeta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3bC-yi-zV6" customClass="FoodViewController" customModule="DiaBeta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6TZ-7O-q5d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -144,8 +144,8 @@
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byv-Eo-TaL">
-                                        <rect key="frame" x="25" y="218" width="176" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byv-Eo-TaL">
+                                        <rect key="frame" x="25" y="218" width="176" height="72"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -213,14 +213,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="aPc-hv-grT"/>
                     <connections>
-                        <outlet property="botFoodDetView" destination="Mq9-kB-ASq" id="ENG-u6-8f8"/>
-                        <outlet property="categoryLbl" destination="byv-Eo-TaL" id="dpG-bY-SM4"/>
-                        <outlet property="dateTimeLbl" destination="dxr-Yk-g7S" id="Uui-UG-FWC"/>
-                        <outlet property="detailImgView" destination="kqE-kV-bkw" id="e83-6X-dgA"/>
-                        <outlet property="foodNameLbl" destination="e58-cj-buR" id="JAs-Ce-Wyc"/>
-                        <outlet property="postGlucoseLbl" destination="fvE-ya-Q2T" id="CQF-I4-Wsa"/>
-                        <outlet property="preGlucoseLbl" destination="rBX-27-5wD" id="yew-jP-fUk"/>
-                        <outlet property="topFoodDetView" destination="YXL-eS-u7n" id="W5K-h2-qeU"/>
+                        <outlet property="botFoodDetView" destination="Mq9-kB-ASq" id="7I0-rY-qay"/>
+                        <outlet property="categoryLbl" destination="byv-Eo-TaL" id="m3r-CY-Bll"/>
+                        <outlet property="dateTimeLbl" destination="dxr-Yk-g7S" id="eRd-QS-lQw"/>
+                        <outlet property="detailImgView" destination="kqE-kV-bkw" id="EXH-ds-Rn6"/>
+                        <outlet property="foodNameLbl" destination="e58-cj-buR" id="p6L-df-0xf"/>
+                        <outlet property="postGlucoseLbl" destination="fvE-ya-Q2T" id="ahM-Me-rzy"/>
+                        <outlet property="preGlucoseLbl" destination="rBX-27-5wD" id="TXh-2P-bTC"/>
+                        <outlet property="topFoodDetView" destination="YXL-eS-u7n" id="BYa-WC-CO9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nuu-4x-bFn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
