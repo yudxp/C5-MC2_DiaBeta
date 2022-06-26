@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Meals-->
+        <!--Title-->
         <scene sceneID="Gq4-9x-Dzp">
             <objects>
                 <viewController id="1IZ-c7-L7d" customClass="MealViewController" customModule="DiaBeta" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,6 +20,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Wxw-dm-hr1">
                                 <rect key="frame" x="0.0" y="179" width="414" height="683"/>
+                                <color key="sectionIndexBackgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                                 <sections/>
                             </tableView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="k3P-FQ-aCb">
@@ -85,22 +86,24 @@
                             <constraint firstItem="Wxw-dm-hr1" firstAttribute="trailing" secondItem="Gt3-HM-ryf" secondAttribute="trailing" id="eJ8-2V-dCy"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Meals" id="97E-UV-0AW"/>
+                    <navigationItem key="navigationItem" title="Title" id="hpj-ue-Dpj"/>
                     <connections>
                         <outlet property="dateCollectionView" destination="k3P-FQ-aCb" id="eVo-SE-Ofl"/>
                         <outlet property="foodTableView" destination="Wxw-dm-hr1" id="1dE-xj-MaB"/>
                         <outlet property="tableView" destination="Wxw-dm-hr1" id="N6h-hv-MqU"/>
                         <segue destination="3bC-yi-zV6" kind="show" identifier="foodDetail" id="4d6-DW-6eU"/>
+                        <segue destination="eK7-UH-oRC" kind="show" identifier="addMeal" id="Tsz-HB-Wg8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HgL-Th-buj" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-339.13043478260875" y="1818.75"/>
+            <point key="canvasLocation" x="571.01449275362324" y="1818.75"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Meals-->
         <scene sceneID="71L-nJ-jIP">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="t9l-cr-QgU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Meals" image="list.bullet" catalog="system" id="od7-IZ-5eH"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="olp-Bi-heH">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -113,7 +116,17 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Qe-2c-hUL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1199" y="1819"/>
+            <point key="canvasLocation" x="-289.85507246376812" y="1818.75"/>
+        </scene>
+        <!--MealsInput-->
+        <scene sceneID="fNJ-aq-GPX">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MealsInput" id="eK7-UH-oRC" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="iQj-4d-mRf"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zpo-FH-jHQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1051" y="1384"/>
         </scene>
         <!--Food View Controller-->
         <scene sceneID="Ylg-IO-hky">
@@ -225,10 +238,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nuu-4x-bFn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="582.60869565217399" y="1818.75"/>
+            <point key="canvasLocation" x="1492.753623188406" y="1818.75"/>
         </scene>
     </scenes>
     <resources>
+        <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <namedColor name="GreenColor">
             <color red="0.0" green="0.48199999332427979" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
