@@ -7,13 +7,42 @@
 
 import UIKit
 
+protocol FoodCategoryDelegate : AnyObject {
+  func saveData(category:[String])
+}
+
+
+
 class CategoryViewController: UIViewController {
     var foodCategory = ["Dairy", "Fruit", "Grains", "Protein", "Starch", "Sweets", "Vegetables"]
+    var saveFoodCategory:[Bool] = [false,false,false,false,false,false,false]
+
 //    var categoryDict = ["Dairy": false, "Fruit": false, "Grains": false, "Protein" : false, "Starch" : false, "Sweets" : false, "Vegetables" : false]
 //    var categoryIndex = ["Dairy": 1, "Fruit": 2, "Grains": 3, "Protein" : 4, "Starch" : 5, "Sweets" : 6, "Vegetables" : 7]
   @IBOutlet weak var categoryTable: UITableView!
+  weak var delegate: FoodCategoryDelegate?
   
+//  override func willmo(_ animated: Bool) {
+//    var categoryString: [String] = []
+//    for index in 0..<foodCategory.count {
+//      if saveFoodCategory[index] == true {
+//        categoryString.append(foodCategory[index])
+//      }
+//    }
+//    delegate?.saveData(category: categoryString)
+//    print("test")
+//  }
   
+  override func willMove(toParent parent: UIViewController?) {
+    var categoryString: [String] = []
+    for index in 0..<foodCategory.count {
+      if saveFoodCategory[index] == true {
+        categoryString.append(foodCategory[index])
+      }
+    }
+    delegate?.saveData(category: categoryString)
+//    print("test")
+  }
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +50,16 @@ class CategoryViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//    if segue.identifier == "mealsInputUnwind" {
+//      categoryString.removeAll()
+//      for index in 0..<foodCategory.count {
+//        if saveFoodCategory[index] == true {
+//          categoryString.append(foodCategory[index])
+//        }
+//      }
+//    }
+//  }
     /*
     // MARK: - Navigation
 
@@ -60,9 +98,11 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+    saveFoodCategory[indexPath.row] = true
   }
   func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
     tableView.cellForRow(at: indexPath)?.accessoryType = .none
+    saveFoodCategory[indexPath.row] = false
   }
   
 }

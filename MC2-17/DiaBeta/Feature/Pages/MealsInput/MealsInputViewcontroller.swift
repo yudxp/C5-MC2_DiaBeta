@@ -18,6 +18,14 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
   //COBA POST
   var foodlist: [Food] = []
   
+//  @IBAction func unwindToMealsInput(_ unwindSegue: UIStoryboardSegue) {
+//    if unwindSegue.identifier == "mealsInputUnwind"{
+//      let sourceViewController = unwindSegue.source as! CategoryViewController
+//      kategoriCoreData = sourceViewController.categoryString
+//      print(kategoriCoreData)
+//    }
+//    // Use data from the view controller which initiated the unwind segue
+//  }
   
   @IBOutlet weak var cameraButton: UIButton!
   @IBOutlet weak var cameraPreview: UIImageView!
@@ -65,6 +73,13 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
   
   override func viewWillAppear(_ animated: Bool) {
     self.tabBarController?.tabBar.isHidden = false
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "mealsToCategory" {
+      let destination = segue.destination as! CategoryViewController
+      destination.delegate = self
+    }
   }
 //MARK: - Rounding the View
   private func roundUIView(){
@@ -118,7 +133,7 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
 
     
     //
-    kategoriCoreData = SharedInfo.shared.category
+//    kategoriCoreData = SharedInfo.shared.category
     //to Core Data
     DBHelper.shared.createFood(timestamp: timeStampCoreData!, nama: namaCoreData!, category: kategoriCoreData, image: imageData!, preGula: preGulaCoreData!)
     
@@ -290,3 +305,9 @@ extension MealsInputViewController: UITextFieldDelegate{
   }
 }
 
+extension MealsInputViewController: FoodCategoryDelegate {
+  func saveData(category: [String]) {
+          kategoriCoreData = category
+//          print(kategoriCoreData)
+  }
+}

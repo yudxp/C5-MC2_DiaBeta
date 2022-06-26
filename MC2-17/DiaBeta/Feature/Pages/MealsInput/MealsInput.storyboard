@@ -54,12 +54,6 @@
                                     <outlet property="delegate" destination="GlL-fZ-1IZ" id="zCP-NJ-MMv"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pkw-FO-8LX">
-                                <rect key="frame" x="139" y="722" width="113" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Save Settings"/>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yG6-vt-eRa"/>
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
@@ -67,9 +61,11 @@
                     <navigationItem key="navigationItem" title="Category" id="L2S-sn-B7V"/>
                     <connections>
                         <outlet property="categoryTable" destination="oZf-ME-zT8" id="zEm-he-rw5"/>
+                        <segue destination="gzl-8G-UOG" kind="unwind" identifier="mealsInputUnwind" unwindAction="unwindToMealsInput:" id="g8x-ex-M3l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l2J-E2-vqV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="gzl-8G-UOG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="958.46153846153845" y="69.66824644549763"/>
         </scene>
