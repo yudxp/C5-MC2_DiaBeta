@@ -35,10 +35,10 @@
             </objects>
             <point key="canvasLocation" x="788" y="-44"/>
         </scene>
-        <!--MealsInput-->
+        <!--Meal-->
         <scene sceneID="ECf-El-feA">
             <objects>
-                <viewControllerPlaceholder storyboardName="MealsInput" id="Vde-Wh-Wqz" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Meal" id="Vde-Wh-Wqz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="fxb-LK-fnw"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oVo-UM-hyf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

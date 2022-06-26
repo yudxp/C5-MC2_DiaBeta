@@ -58,7 +58,8 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
       }
     
     @IBOutlet var tableView: UITableView!
-    
+
+  
     var weekDate:[Date]=[]
     var dateData:[String]=[]
     
@@ -73,7 +74,7 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
         navigationItem.rightBarButtonItem = UIBarButtonItem(title : "Add",
                                                             style : .plain,
                                                             target: self,
-                                                            action : nil)
+                                                            action: #selector(self.ProfileButtonTapped(_:)))
         
         let nib = UINib(nibName: "MealTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "MealTableViewCell")
@@ -85,6 +86,14 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     }
     
+     @objc func ProfileButtonTapped(_ sender:UIBarButtonItem!) {
+     print("Button Tapped")
+     performSegue(withIdentifier: "addMeal", sender: self)
+     //If you want pass data while segue you can use prepare segue method
+    }
+    
+    
+  
     func getWeeks() {
         let dateCur = Date()
         dateFormatter.dateFormat = "MMM d, yyyy"
@@ -144,9 +153,15 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      
-      let foodDetailVC = segue.destination as! FoodViewController
-      foodDetailVC.foodDetail = selectedFood //sesuain sama cell
-      
+      if segue.identifier == "foodDetail" {
+        let foodDetailVC = segue.destination as! FoodViewController
+        foodDetailVC.foodDetail = selectedFood //sesuain sama cell
+      }
+      else if segue.identifier == "addMeal" {
+        print("addMeal")
+      }
+
     }
+    
+    
 }
