@@ -34,6 +34,12 @@
 		3C3FB42D28546BCE0072351F /* DBTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FB42C28546BCE0072351F /* DBTest.swift */; };
 		3C3FB437285490090072351F /* siomay.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3C3FB436285490090072351F /* siomay.jpeg */; };
 		3C3FB4392854971F0072351F /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FB4382854971F0072351F /* DBHelper.swift */; };
+		3CAE5DC1286857BD00958712 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAE5DBB286857BD00958712 /* MealTableViewCell.swift */; };
+		3CAE5DC2286857BD00958712 /* MealTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CAE5DBC286857BD00958712 /* MealTableViewCell.xib */; };
+		3CAE5DC3286857BD00958712 /* Meal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CAE5DBD286857BD00958712 /* Meal.storyboard */; };
+		3CAE5DC5286857BD00958712 /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAE5DBF286857BD00958712 /* MealViewController.swift */; };
+		3CAE5DC6286857BD00958712 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAE5DC0286857BD00958712 /* DateCollectionViewCell.swift */; };
+		3CAE5DC828685A5D00958712 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAE5DC728685A5D00958712 /* FoodViewController.swift */; };
 		3CB22993285309BF0054797B /* Dummy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB22992285309BF0054797B /* Dummy.storyboard */; };
 		3CB2299528530A4D0054797B /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB2299428530A4D0054797B /* DummyViewController.swift */; };
 		3CB2299E28530C280054797B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB2299D28530C280054797B /* Color.swift */; };
@@ -75,6 +81,12 @@
 		3C3FB42C28546BCE0072351F /* DBTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBTest.swift; sourceTree = "<group>"; };
 		3C3FB436285490090072351F /* siomay.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = siomay.jpeg; sourceTree = "<group>"; };
 		3C3FB4382854971F0072351F /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
+		3CAE5DBB286857BD00958712 /* MealTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
+		3CAE5DBC286857BD00958712 /* MealTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MealTableViewCell.xib; sourceTree = "<group>"; };
+		3CAE5DBD286857BD00958712 /* Meal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Meal.storyboard; sourceTree = "<group>"; };
+		3CAE5DBF286857BD00958712 /* MealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
+		3CAE5DC0286857BD00958712 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		3CAE5DC728685A5D00958712 /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 		3CB22992285309BF0054797B /* Dummy.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dummy.storyboard; sourceTree = "<group>"; };
 		3CB2299428530A4D0054797B /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
 		3CB2299D28530C280054797B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -196,6 +208,19 @@
 			path = tester;
 			sourceTree = "<group>";
 		};
+		3CAE5DBA286857BD00958712 /* Meals */ = {
+			isa = PBXGroup;
+			children = (
+				3CAE5DBB286857BD00958712 /* MealTableViewCell.swift */,
+				3CAE5DBC286857BD00958712 /* MealTableViewCell.xib */,
+				3CAE5DBD286857BD00958712 /* Meal.storyboard */,
+				3CAE5DBF286857BD00958712 /* MealViewController.swift */,
+				3CAE5DC0286857BD00958712 /* DateCollectionViewCell.swift */,
+				3CAE5DC728685A5D00958712 /* FoodViewController.swift */,
+			);
+			path = Meals;
+			sourceTree = "<group>";
+		};
 		3CB2298E2852F81A0054797B /* Feature */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +232,7 @@
 		3CB2298F2852FA060054797B /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				3CAE5DBA286857BD00958712 /* Meals */,
 				15F087A42867439A00EB8E19 /* MealsInput */,
 				15F087982862A15300EB8E19 /* FoodDetail */,
 				15F0878A2860C3B800EB8E19 /* BloodSample */,
@@ -391,8 +417,10 @@
 			files = (
 				A119A1DA28632D0100719F67 /* Main.storyboard in Resources */,
 				3C3FB42B28546B800072351F /* DBTest.storyboard in Resources */,
+				3CAE5DC2286857BD00958712 /* MealTableViewCell.xib in Resources */,
 				F94930F3284E549E005C0B43 /* LaunchScreen.storyboard in Resources */,
 				1595548828607B4500FDF192 /* MainScreen.storyboard in Resources */,
+				3CAE5DC3286857BD00958712 /* Meal.storyboard in Resources */,
 				F94930F0284E549E005C0B43 /* Assets.xcassets in Resources */,
 				15F087972860F49100EB8E19 /* TableViewCell.xib in Resources */,
 				3CB229A328530C7D0054797B /* DayFoodCell.xib in Resources */,
@@ -422,6 +450,7 @@
 				3C2985F5285DE77400694432 /* FoodInfo+CoreDataClass.swift in Sources */,
 				3CB2299528530A4D0054797B /* DummyViewController.swift in Sources */,
 				F94930E6284E549D005C0B43 /* SceneDelegate.swift in Sources */,
+				3CAE5DC1286857BD00958712 /* MealTableViewCell.swift in Sources */,
 				15955483286076CE00FDF192 /* MainScreen.swift in Sources */,
 				3C2985F3285DE77400694432 /* Food+CoreDataClass.swift in Sources */,
 				15F087922860C53E00EB8E19 /* SampleViewController.swift in Sources */,
@@ -431,12 +460,15 @@
 				15F087A9286743BF00EB8E19 /* DictionaryExtension.swift in Sources */,
 				3C3FB42D28546BCE0072351F /* DBTest.swift in Sources */,
 				3CB229A228530C7D0054797B /* DayFoodCell.swift in Sources */,
+				3CAE5DC6286857BD00958712 /* DateCollectionViewCell.swift in Sources */,
 				1595547F2860716500FDF192 /* GlucoseFoodCell.swift in Sources */,
 				3C2985F7285DE77400694432 /* GulaDarah+CoreDataClass.swift in Sources */,
+				3CAE5DC828685A5D00958712 /* FoodViewController.swift in Sources */,
 				3CB2299E28530C280054797B /* Color.swift in Sources */,
 				3C3FB4392854971F0072351F /* DBHelper.swift in Sources */,
 				3C2985F4285DE77400694432 /* Food+CoreDataProperties.swift in Sources */,
 				3C2985F6285DE77400694432 /* FoodInfo+CoreDataProperties.swift in Sources */,
+				3CAE5DC5286857BD00958712 /* MealViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -145,7 +145,7 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       
-      let foodDetailVC = segue.destination as! FoodDetailViewController
+      let foodDetailVC = segue.destination as! FoodViewController
       foodDetailVC.foodDetail = selectedFood //sesuain sama cell
       
     }
