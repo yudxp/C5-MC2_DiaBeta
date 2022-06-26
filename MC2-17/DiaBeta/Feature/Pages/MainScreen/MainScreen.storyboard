@@ -47,7 +47,7 @@
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Tjg-On-C6D">
                                         <rect key="frame" x="8" y="94" width="374" height="197"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Che-4R-9KK">
                                             <size key="itemSize" width="140" height="170"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -63,7 +63,7 @@
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sUi-hH-GsX">
                                         <rect key="frame" x="8" y="330" width="374" height="199"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FwX-dB-3vD">
                                             <size key="itemSize" width="140" height="170"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -109,7 +109,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Dn-IO-QvT">
                                 <rect key="frame" x="20" y="192" width="350" height="80"/>
@@ -204,6 +204,9 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.4823529411764706" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
