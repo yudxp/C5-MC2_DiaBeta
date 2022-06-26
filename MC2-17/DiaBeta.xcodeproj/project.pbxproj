@@ -46,6 +46,9 @@
 		3CB229A228530C7D0054797B /* DayFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB229A028530C7D0054797B /* DayFoodCell.swift */; };
 		3CB229A328530C7D0054797B /* DayFoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CB229A128530C7D0054797B /* DayFoodCell.xib */; };
 		A119A1DA28632D0100719F67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A119A1D928632D0100719F67 /* Main.storyboard */; };
+		F91B516128689EB200584437 /* EditMealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B516028689EB200584437 /* EditMealsViewController.swift */; };
+		F91B516328689F3200584437 /* EditCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B516228689F3200584437 /* EditCategoryViewController.swift */; };
+		F91B516528689F8E00584437 /* EditMeals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91B516428689F8E00584437 /* EditMeals.storyboard */; };
 		F94930E4284E549D005C0B43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94930E3284E549D005C0B43 /* AppDelegate.swift */; };
 		F94930E6284E549D005C0B43 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94930E5284E549D005C0B43 /* SceneDelegate.swift */; };
 		F94930EE284E549D005C0B43 /* DiaBeta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F94930EC284E549D005C0B43 /* DiaBeta.xcdatamodeld */; };
@@ -93,6 +96,9 @@
 		3CB229A028530C7D0054797B /* DayFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayFoodCell.swift; sourceTree = "<group>"; };
 		3CB229A128530C7D0054797B /* DayFoodCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayFoodCell.xib; sourceTree = "<group>"; };
 		A119A1D928632D0100719F67 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F91B516028689EB200584437 /* EditMealsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMealsViewController.swift; sourceTree = "<group>"; };
+		F91B516228689F3200584437 /* EditCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCategoryViewController.swift; sourceTree = "<group>"; };
+		F91B516428689F8E00584437 /* EditMeals.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditMeals.storyboard; sourceTree = "<group>"; };
 		F94930E0284E549D005C0B43 /* DiaBeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiaBeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F94930E3284E549D005C0B43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F94930E5284E549D005C0B43 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -232,6 +238,7 @@
 		3CB2298F2852FA060054797B /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				F91B515F28689DC800584437 /* EditMeals */,
 				3CAE5DBA286857BD00958712 /* Meals */,
 				15F087A42867439A00EB8E19 /* MealsInput */,
 				15F087982862A15300EB8E19 /* FoodDetail */,
@@ -321,6 +328,16 @@
 				3CB229A128530C7D0054797B /* DayFoodCell.xib */,
 			);
 			path = DayFoodCell;
+			sourceTree = "<group>";
+		};
+		F91B515F28689DC800584437 /* EditMeals */ = {
+			isa = PBXGroup;
+			children = (
+				F91B516028689EB200584437 /* EditMealsViewController.swift */,
+				F91B516228689F3200584437 /* EditCategoryViewController.swift */,
+				F91B516428689F8E00584437 /* EditMeals.storyboard */,
+			);
+			path = EditMeals;
 			sourceTree = "<group>";
 		};
 		F94930D7284E549D005C0B43 = {
@@ -422,6 +439,7 @@
 				1595548828607B4500FDF192 /* MainScreen.storyboard in Resources */,
 				3CAE5DC3286857BD00958712 /* Meal.storyboard in Resources */,
 				F94930F0284E549E005C0B43 /* Assets.xcassets in Resources */,
+				F91B516528689F8E00584437 /* EditMeals.storyboard in Resources */,
 				15F087972860F49100EB8E19 /* TableViewCell.xib in Resources */,
 				3CB229A328530C7D0054797B /* DayFoodCell.xib in Resources */,
 				15F0878E2860C3EA00EB8E19 /* Sample.storyboard in Resources */,
@@ -441,12 +459,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F91B516328689F3200584437 /* EditCategoryViewController.swift in Sources */,
 				3C2985F8285DE77400694432 /* GulaDarah+CoreDataProperties.swift in Sources */,
 				15F087902860C49300EB8E19 /* InjectMealsViewController.swift in Sources */,
 				F94930E4284E549D005C0B43 /* AppDelegate.swift in Sources */,
 				F94930EE284E549D005C0B43 /* DiaBeta.xcdatamodeld in Sources */,
 				15F087B02867F3BF00EB8E19 /* CategoryViewController.swift in Sources */,
 				15F087AA286743BF00EB8E19 /* MealsInputViewcontroller.swift in Sources */,
+				F91B516128689EB200584437 /* EditMealsViewController.swift in Sources */,
 				3C2985F5285DE77400694432 /* FoodInfo+CoreDataClass.swift in Sources */,
 				3CB2299528530A4D0054797B /* DummyViewController.swift in Sources */,
 				F94930E6284E549D005C0B43 /* SceneDelegate.swift in Sources */,
@@ -608,7 +628,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SLXHN25QU8;
+				DEVELOPMENT_TEAM = 6RYV8J9924;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DiaBeta/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -638,7 +658,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SLXHN25QU8;
+				DEVELOPMENT_TEAM = 6RYV8J9924;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DiaBeta/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

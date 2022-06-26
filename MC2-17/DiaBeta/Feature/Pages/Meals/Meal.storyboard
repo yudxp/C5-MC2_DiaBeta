@@ -157,8 +157,8 @@
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byv-Eo-TaL">
-                                        <rect key="frame" x="25" y="218" width="176" height="72"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label, label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byv-Eo-TaL">
+                                        <rect key="frame" x="25" y="218" width="87" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -224,7 +224,13 @@
                         <viewLayoutGuide key="safeArea" id="EgE-1u-xZh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="aPc-hv-grT"/>
+                    <navigationItem key="navigationItem" id="aPc-hv-grT">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="63Y-Bw-Hcr">
+                            <connections>
+                                <segue destination="wuc-e6-RGP" kind="show" identifier="toEditMeals" id="WD3-Yz-4dh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="botFoodDetView" destination="Mq9-kB-ASq" id="7I0-rY-qay"/>
                         <outlet property="categoryLbl" destination="byv-Eo-TaL" id="m3r-CY-Bll"/>
@@ -239,6 +245,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nuu-4x-bFn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1492.753623188406" y="1818.75"/>
+        </scene>
+        <!--EditMeals-->
+        <scene sceneID="3sc-pk-7fy">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EditMeals" id="wuc-e6-RGP" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="7fo-qK-9yq"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3HT-5A-l2Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2090" y="1773"/>
         </scene>
     </scenes>
     <resources>

@@ -1,7 +1,14 @@
+//
+//  EditMealsViewController.swift
+//  DiaBeta
+//
+//  Created by Muhammad Abdul Fattah on 26/06/22.
+//
+
 import UIKit
 import Photos
 
-class MealsInputViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class EditMealsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
  
   //Var to CoreDate
   var imageCoreData: NSData?
@@ -9,6 +16,7 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
   var kategoriCoreData: [String] = []
   var timeStampCoreData: Date?
   var preGulaCoreData: Int64?
+  var postGulaCoreData: Int64?
   
   // Temp Var
   var strDate: String?
@@ -18,39 +26,52 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
   //COBA POST
   var foodlist: [Food] = []
   
-//  @IBAction func unwindToMealsInput(_ unwindSegue: UIStoryboardSegue) {
-//    if unwindSegue.identifier == "mealsInputUnwind"{
-//      let sourceViewController = unwindSegue.source as! CategoryViewController
-//      kategoriCoreData = sourceViewController.categoryString
-//      print(kategoriCoreData)
-//    }
-//    // Use data from the view controller which initiated the unwind segue
-//  }
-  
-  @IBOutlet weak var cameraButton: UIButton!
   @IBOutlet weak var cameraPreview: UIImageView!
   @IBOutlet weak var foodUI: UIView!
-  @IBOutlet weak var DateTime: UIView!
-  @IBOutlet weak var FoodName: UIView!
-  @IBOutlet weak var Category: UIView!
-  @IBOutlet weak var DateView: UIView!
-  @IBOutlet weak var TimeView: UIView!
+  @IBOutlet weak var category: UIView!
+  @IBOutlet weak var dateTime: UIView!
+  @IBOutlet weak var dateView: UIView!
+  @IBOutlet weak var timeView: UIView!
   @IBOutlet weak var preGlucoseView: UIView!
+  @IBOutlet weak var postGlucoseView: UIView!
 
-  
+  var foodDetail: Food?
+  @IBOutlet weak var cameraButton: UIButton!
+  @IBOutlet weak var foodName: UILabel!
+//  @IBOutlet weak var foodName: UITextField!
+  @IBOutlet weak var datePicker: UIDatePicker!
+  @IBOutlet weak var timePicker: UIDatePicker!
   @IBOutlet weak var preGlucoseTextField: UITextField!
-  @IBOutlet weak var foodTextField: UITextField!
-  @IBOutlet weak var CategoryButton: UIButton!
-  @IBOutlet weak var DatePicker: UIDatePicker!
-  @IBOutlet weak var TimePicker: UIDatePicker!
+  @IBOutlet weak var postGlucoseTextField: UITextField!
   @IBOutlet weak var saveButton: UIBarButtonItem!
   
+
   
   var imagePickerController = UIImagePickerController()
   var picker = UIImagePickerController()
   
   override func viewDidLoad() {
   super.viewDidLoad()
+    
+    cameraPreview.image = UIImage(data: (imageCoreData)!as Data)
+    foodName.text = namaCoreData
+    datePicker.date = timeStampCoreData ?? Date()
+    timePicker.date = timeStampCoreData ?? Date()
+    preGlucoseTextField.text = "\(Int64(preGulaCoreData!))"
+    postGlucoseTextField.text = "\(Int64(postGulaCoreData!))"
+    
+    //to make the variable is the same as on core data
+    print("bisa sampe sini")
+//    cameraPreview.image = UIImage(data: (foodDetail?.photo)!as Data)
+    
+    
+    
+//
+//    let categoryArray = foodDetail?.category!
+//    let stringFromArray = categoryArray!.joined(separator: ",")
+//    categoryLbl.text = stringFromArray
+  
+
     
     roundUIView()
     imagePickerController.delegate = self
@@ -63,11 +84,11 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     checkPermission()
     
     //To Get Rid of the Keyboard
-    foodTextField.returnKeyType = .done
-    preGlucoseTextField.returnKeyType = .done
-    
-    foodTextField.delegate = self
-    preGlucoseTextField.delegate = self
+//    foodName.returnKeyType = .done
+//    preGlucoseTextField.returnKeyType = .done
+//
+//    foodName.delegate = self
+//    preGlucoseTextField.delegate = self
     
   }
   
@@ -83,9 +104,9 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
   }
 //MARK: - Rounding the View
   private func roundUIView(){
-    DateTime.layer.cornerRadius = 8
-    DateView.layer.cornerRadius = 5
-    TimeView.layer.cornerRadius = 5
+    dateTime.layer.cornerRadius = 8
+    dateView.layer.cornerRadius = 5
+    timeView.layer.cornerRadius = 5
   }
   
 //MARK: - Get Date Data
@@ -104,39 +125,42 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
 //MARK: - To Save
   @IBAction func saveAll(_ sender: Any) {
     
-    //To Gate Date and Time
-    getDate(DatePicker: DatePicker.date)
-    getTime(TimePicker: TimePicker.date)
-    //To Combine the String
-    strDateTime = strDate!+" "+strTime!
-    
-    print(strDateTime!)
-    
-    //To Change the Format into Date Again
-    let dateFormatter = DateFormatter()
-    dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-    dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
-    
-    
-    let date = dateFormatter.date(from:strDateTime!)
-    let date2 = date ?? Date()
-    
-    
-    timeStampCoreData = date2
+//    //To Gate Date and Time
+//    getDate(DatePicker: datePicker.date)
+//    getTime(TimePicker: timePicker.date)
+//    //To Combine the String
+//    strDateTime = strDate!+" "+strTime!
+//
+//    print(strDateTime!)
+//
+//    //To Change the Format into Date Again
+//    let dateFormatter = DateFormatter()
+//    dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+//    dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
+//
+//
+//    let date = dateFormatter.date(from:strDateTime!)
+//    let date2 = date ?? Date()
+//
+//
+//    timeStampCoreData = date2
     
     //Get Food dan input preGula
-    namaCoreData = foodTextField.text!
+    namaCoreData = foodName.text!
     preGulaCoreData =  Int64(preGlucoseTextField.text!)!
+    postGulaCoreData = Int64(postGlucoseTextField.text!)!
     
     let image = cameraPreview.image
     let imageData = image?.jpegData(compressionQuality: 0.5) as? NSData
 
-    
-    //
-//    kategoriCoreData = SharedInfo.shared.category
     //to Core Data
     DBHelper.shared.createFood(timestamp: timeStampCoreData!, nama: namaCoreData!, category: kategoriCoreData, image: imageData!, preGula: preGulaCoreData!)
+    print("Ke save pre gula darah")
+    DBHelper.shared.editFood(postGula: postGulaCoreData!, timestamp: timeStampCoreData!)
+    print("Ke save post Gula darah")
     
+
+    //to Core Data for POST MEAL
 //
     foodlist = DBHelper.shared.getAllFood()
     print(foodlist[foodlist.count-1].category as Any)
@@ -172,36 +196,6 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     picker.delegate = self
     present(picker, animated: true)
     
-    
-    
-    
-//    let defaultAction = UIAlertAction(title: "Camera",
-//                                      style: .default) { [self] (action) in
-//   // Respond to user selection of the action.
-//              let picker = UIImagePickerController()
-//              picker.sourceType = .camera
-//              picker.allowsEditing = true
-//              picker.delegate = self
-//              self.present(picker, animated:true)
-//
-
-//
-//    }
-//    let cancelAction = UIAlertAction(title: "Gallery",
-//                         style: .cancel) { (action) in
-//      self.imagePickerController.sourceType = .photoLibrary
-//      self.present(self.imagePickerController, animated: true, completion: nil)
-//    }
-//
-//    // Create and configure the alert controller.
-//    let alert = UIAlertController(title: "Method of Input",
-//          message: "Please Choose the methode to take the photo",
-//          preferredStyle: .alert)
-//    alert.addAction(defaultAction)
-//    alert.addAction(cancelAction)
-//
-//    self.present(alert, animated: true) {
-//    }
   }
     
   //MARK: - Check All Permission
@@ -234,75 +228,24 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     else{
       cameraPreview?.image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
       
-//      let imageData:NSData = cameraPreview?.image!.jpegData(compressionQuality: 0.5)! as NSData
-//      let camera = info[UIImagePickerController.InfoKey.originalImage] as? NSData
-//      //to tem
-//      imageCoreData = camera!
+
     }
     
     picker.dismiss(animated: true, completion:nil)
     
   }
-  
-  // FOR DATA INPUT (Probably important if Date and Time method above is not working
-  
-  // Date
-//  func createDatePicker(){
-//
-//    inputDate.textAlignment = .center
-//    //toolbar
-//    let toolbar = UIToolbar()
-//    toolbar.sizeToFit()
-//
-//    //barbutton
-//    let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
-//    toolbar.setItems([doneBtn], animated: true)
-//
-//    //assign toolbar
-//    inputDate.inputAccessoryView = toolbar
-//
-//    //assign date picker to the text field
-//    inputDate.inputView = datePicker
-//
-//    datePicker.datePickerMode = .date
-//
-//  }
-//
-//  @objc func donePressed(){
-//    let formatter = DateFormatter()
-//    formatter.dateStyle = .medium
-//    formatter.timeStyle = .none
-//
-//    inputDate.text = formatter.string(from: datePicker.date)
-//    self.view.endEditing(true)
-//  }
-//
-//
-//  //Time
-//  @objc func timePickerValueChanged(sender: UIDatePicker){
-//    let formatter = DateFormatter()
-//    formatter.locale = Locale(identifier: "en_gb")
-//    formatter.dateFormat = "hh:mm"
-//    inputTime.text = formatter.string(from: sender.date)
-//  }
-  
-  
-  // Private Function
-  
-
-  
-  
+    
   
 }
 
-extension MealsInputViewController: UITextFieldDelegate{
+extension EditMealsViewController: UITextFieldDelegate{
   func textFieldShouldReturn(_ foodTextField: UITextField) -> Bool {
     foodTextField.resignFirstResponder()
     return true
   }
 }
 
-extension MealsInputViewController: FoodCategoryDelegate {
+extension EditMealsViewController: FoodCategoryDelegate {
   func saveData(category: [String]) {
           kategoriCoreData = category
 //          print(kategoriCoreData)
