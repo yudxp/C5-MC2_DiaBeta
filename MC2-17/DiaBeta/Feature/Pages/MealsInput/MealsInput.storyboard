@@ -191,7 +191,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2SN-RI-8KJ"/>
-                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                        <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Meal Detail" id="jhH-vU-SBZ">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="me6-YM-sLx">
