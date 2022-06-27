@@ -147,7 +147,9 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.myLabel2.text = foodInfos[indexPath.row].name
         cell.myLabel3.text = category
         cell.myLabel4.text = rowDate
-        cell.myImageView.image = UIImage(data: foodInfos[indexPath.row].photo as! Data)
+//        cell.myImageView.image = UIImage(data: foodInfos[indexPath.row].photo !as Data
+        cell.myImageView.image = UIImage(data: (foodInfos[indexPath.row].photo)!as Data)
+      cell.myImageView.contentMode = .scaleAspectFit
     
         return cell
     }
