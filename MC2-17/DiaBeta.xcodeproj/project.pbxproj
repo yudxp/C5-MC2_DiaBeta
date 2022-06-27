@@ -54,6 +54,10 @@
 		F94930EE284E549D005C0B43 /* DiaBeta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F94930EC284E549D005C0B43 /* DiaBeta.xcdatamodeld */; };
 		F94930F0284E549E005C0B43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F94930EF284E549E005C0B43 /* Assets.xcassets */; };
 		F94930F3284E549E005C0B43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F94930F1284E549E005C0B43 /* LaunchScreen.storyboard */; };
+		F9BC30B1286969DF00C28EFC /* NotificationPreMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC30B0286969DF00C28EFC /* NotificationPreMealViewController.swift */; };
+		F9BC30B328696A6800C28EFC /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC30B228696A6800C28EFC /* NotificationViewController.swift */; };
+		F9BC30B528696ABA00C28EFC /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9BC30B428696ABA00C28EFC /* Notification.storyboard */; };
+		F9BC30B728696ACB00C28EFC /* NotificationPreMeal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9BC30B628696ACB00C28EFC /* NotificationPreMeal.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +110,10 @@
 		F94930EF284E549E005C0B43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F94930F2284E549E005C0B43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F94930F4284E549E005C0B43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9BC30B0286969DF00C28EFC /* NotificationPreMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationPreMealViewController.swift; path = DiaBeta/Feature/Pages/NotificationPreMealViewController.swift; sourceTree = SOURCE_ROOT; };
+		F9BC30B228696A6800C28EFC /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		F9BC30B428696ABA00C28EFC /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
+		F9BC30B628696ACB00C28EFC /* NotificationPreMeal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotificationPreMeal.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +246,7 @@
 		3CB2298F2852FA060054797B /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				F9BC30AF286969B300C28EFC /* Notification */,
 				F91B515F28689DC800584437 /* EditMeals */,
 				3CAE5DBA286857BD00958712 /* Meals */,
 				15F087A42867439A00EB8E19 /* MealsInput */,
@@ -374,6 +383,17 @@
 			path = DiaBeta;
 			sourceTree = "<group>";
 		};
+		F9BC30AF286969B300C28EFC /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				F9BC30B0286969DF00C28EFC /* NotificationPreMealViewController.swift */,
+				F9BC30B228696A6800C28EFC /* NotificationViewController.swift */,
+				F9BC30B428696ABA00C28EFC /* Notification.storyboard */,
+				F9BC30B628696ACB00C28EFC /* NotificationPreMeal.storyboard */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -434,6 +454,7 @@
 			files = (
 				A119A1DA28632D0100719F67 /* Main.storyboard in Resources */,
 				3C3FB42B28546B800072351F /* DBTest.storyboard in Resources */,
+				F9BC30B728696ACB00C28EFC /* NotificationPreMeal.storyboard in Resources */,
 				3CAE5DC2286857BD00958712 /* MealTableViewCell.xib in Resources */,
 				F94930F3284E549E005C0B43 /* LaunchScreen.storyboard in Resources */,
 				1595548828607B4500FDF192 /* MainScreen.storyboard in Resources */,
@@ -443,6 +464,7 @@
 				15F087972860F49100EB8E19 /* TableViewCell.xib in Resources */,
 				3CB229A328530C7D0054797B /* DayFoodCell.xib in Resources */,
 				15F0878E2860C3EA00EB8E19 /* Sample.storyboard in Resources */,
+				F9BC30B528696ABA00C28EFC /* Notification.storyboard in Resources */,
 				15F087AB286743C000EB8E19 /* MealsInput.storyboard in Resources */,
 				3C3FB437285490090072351F /* siomay.jpeg in Resources */,
 				159554802860716500FDF192 /* GlucoseFoodCell.xib in Resources */,
@@ -461,6 +483,8 @@
 			files = (
 				F91B516328689F3200584437 /* EditCategoryViewController.swift in Sources */,
 				3C2985F8285DE77400694432 /* GulaDarah+CoreDataProperties.swift in Sources */,
+				F9BC30B328696A6800C28EFC /* NotificationViewController.swift in Sources */,
+				F9BC30B1286969DF00C28EFC /* NotificationPreMealViewController.swift in Sources */,
 				15F087902860C49300EB8E19 /* InjectMealsViewController.swift in Sources */,
 				F94930E4284E549D005C0B43 /* AppDelegate.swift in Sources */,
 				F94930EE284E549D005C0B43 /* DiaBeta.xcdatamodeld in Sources */,
