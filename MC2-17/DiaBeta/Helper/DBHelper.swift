@@ -158,7 +158,7 @@ class DBHelper {
         foodList = getDateFood(timestamp)
         var i: Int = 0
         var notFound: Bool = true
-        let currFood: Food = foodList[foodList.count-1]
+        let currFood: Food = foodList[(foodList.count)-1]
         let selisih: Int64 = currFood.postGula - currFood.preGula
         if (selisih>30){
             let badList: [FoodInfo] = getBad()

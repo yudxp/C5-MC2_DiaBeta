@@ -45,7 +45,6 @@ class EditMealsViewController: UIViewController, UIImagePickerControllerDelegate
   @IBOutlet weak var postGlucoseTextField: UITextField!
   @IBOutlet weak var saveButton: UIBarButtonItem!
   
-
   
   var imagePickerController = UIImagePickerController()
   var picker = UIImagePickerController()
@@ -155,8 +154,10 @@ class EditMealsViewController: UIViewController, UIImagePickerControllerDelegate
 
     //to Core Data
     DBHelper.shared.createFood(timestamp: timeStampCoreData!, nama: namaCoreData!, category: kategoriCoreData, image: imageData!, preGula: preGulaCoreData!)
+    print(timeStampCoreData as Any)
     print("Ke save pre gula darah")
     DBHelper.shared.editFood(postGula: postGulaCoreData!, timestamp: timeStampCoreData!)
+
     print("Ke save post Gula darah")
     
 

@@ -148,7 +148,11 @@
                         <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Meal Detail" id="wh2-4t-BSx">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="den-aa-Kpg"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="den-aa-Kpg">
+                            <connections>
+                                <action selector="saveAll:" destination="C0j-ee-vNE" id="GGC-le-Vl3"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -164,7 +168,7 @@
                         <outlet property="postGlucoseView" destination="DuG-xB-z2E" id="yuv-01-TlK"/>
                         <outlet property="preGlucoseTextField" destination="Kbm-cu-Bo2" id="wnt-jB-ute"/>
                         <outlet property="preGlucoseView" destination="7UR-IO-LoV" id="vtR-wn-eI0"/>
-                        <outlet property="saveButton" destination="den-aa-Kpg" id="3AY-bg-hFf"/>
+                        <outlet property="saveButton" destination="den-aa-Kpg" id="f7o-q2-vBL"/>
                         <outlet property="timePicker" destination="frQ-ve-QvX" id="lNT-eQ-3CJ"/>
                         <outlet property="timeView" destination="5oR-N7-7sM" id="du2-SE-Xj6"/>
                         <segue destination="NBy-mn-Bb4" kind="show" id="2bw-zd-GpV"/>

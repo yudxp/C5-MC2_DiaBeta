@@ -55,7 +55,7 @@ class FoodViewController: UIViewController {
         let date = foodDetail?.timestamp
       timeStampCoreData = date
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
+        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
         dateTimeLbl.text = dateFormatter.string(from: date!)
         
         preGlucoseLbl.text = "\(Int(foodDetail?.preGula ?? 0))"
@@ -66,7 +66,6 @@ class FoodViewController: UIViewController {
     }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    
     
     if segue.identifier == "toEditMeals" {
       
@@ -80,17 +79,5 @@ class FoodViewController: UIViewController {
       
       //foodDetailVC.foodDetail = selectedFood //sesuain sama cell
     }
-//  @objc func EditButtonTapped(_ sender:UIBarButtonItem!) {
-//  print("Button Tapped")
-//  performSegue(withIdentifier: "toEditMeals", sender: self)
-//  //If you want pass data while segue you can use prepare segue method
-// }
-//
-//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//    if segue.identifier == "toEditMeals" {
-//      let EditMealsViewController = segue.destination as! EditMealsViewController
-//      //foodDetailVC.foodDetail = selectedFood //sesuain sama cell
-//    }
-    
   }
 }
