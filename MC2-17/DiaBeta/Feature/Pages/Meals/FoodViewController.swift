@@ -15,16 +15,18 @@ class FoodViewController: UIViewController {
     @IBOutlet weak var preGlucoseLbl: UILabel!
     @IBOutlet weak var postGlucoseLbl: UILabel!
     @IBOutlet weak var foodNameLbl: UILabel!
-    var foodDetail: Food?
     @IBOutlet weak var botFoodDetView: UIView!
     @IBOutlet weak var topFoodDetView: UIView!
-    
-  var imageCoreData: NSData?
-  var namaCoreData: String?
-  var kategoriCoreData: [String] = []
-  var timeStampCoreData: Date?
-  var preGulaCoreData: Int64?
-  var postGulaCoreData: Int64?
+  
+  var foodDetail: Food?
+
+  
+//  var imageCoreData: NSData?
+//  var namaCoreData: String?
+//  var kategoriCoreData: [String] = []
+//  var timeStampCoreData: Date?
+//  var preGulaCoreData: Int64?
+//  var postGulaCoreData: Int64?
   
   
     override func viewDidLoad() {
@@ -41,27 +43,27 @@ class FoodViewController: UIViewController {
 //
         
         detailImgView.image = UIImage(data: (foodDetail?.photo)!as Data)
-      let image = detailImgView.image
-      imageCoreData = image?.jpegData(compressionQuality: 0.5) as? NSData
+//        let image = detailImgView.image
+//      imageCoreData = image?.jpegData(compressionQuality: 0.5) as? NSData
         
         foodNameLbl.text = foodDetail?.name
-      namaCoreData = foodNameLbl.text
+//      namaCoreData = foodNameLbl.text
      
         let categoryArray = foodDetail?.category!
-      kategoriCoreData = categoryArray!
+//      kategoriCoreData = categoryArray!
         let stringFromArray = categoryArray!.joined(separator: ",")
         categoryLbl.text = stringFromArray
         
         let date = foodDetail?.timestamp
-      timeStampCoreData = date
+//      timeStampCoreData = date
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
         dateTimeLbl.text = dateFormatter.string(from: date!)
         
         preGlucoseLbl.text = "\(Int(foodDetail?.preGula ?? 0))"
-      preGulaCoreData = Int64(preGlucoseLbl.text!)
+//      preGulaCoreData = Int64(preGlucoseLbl.text!)
         postGlucoseLbl.text = "\(Int(foodDetail?.postGula ?? 0))"
-      postGulaCoreData = Int64(postGlucoseLbl.text!)
+//      postGulaCoreData = Int64(postGlucoseLbl.text!)
       
     }
   
@@ -70,13 +72,15 @@ class FoodViewController: UIViewController {
     
     if segue.identifier == "toEditMeals" {
       
-      let EditMealsViewController = segue.destination as! EditMealsViewController
-      EditMealsViewController.imageCoreData = imageCoreData
-      EditMealsViewController.namaCoreData = namaCoreData
-      EditMealsViewController.kategoriCoreData = kategoriCoreData
-      EditMealsViewController.timeStampCoreData = timeStampCoreData
-      EditMealsViewController.preGulaCoreData = preGulaCoreData
-      EditMealsViewController.postGulaCoreData = postGulaCoreData
+      let EditMealsVC = segue.destination as! UINavigationController
+      let targetCont = EditMealsVC.topViewController as? EditMealsViewController
+      targetCont!.foodDetailSegue = foodDetail
+//      EditMealsViewController.imageCoreData = imageCoreData
+//      EditMealsViewController.namaCoreData = namaCoreData
+//      EditMealsViewController.kategoriCoreData = kategoriCoreData
+//      EditMealsViewController.timeStampCoreData = timeStampCoreData
+//      EditMealsViewController.preGulaCoreData = preGulaCoreData
+//      EditMealsViewController.postGulaCoreData = postGulaCoreData
       
       //foodDetailVC.foodDetail = selectedFood //sesuain sama cell
     }

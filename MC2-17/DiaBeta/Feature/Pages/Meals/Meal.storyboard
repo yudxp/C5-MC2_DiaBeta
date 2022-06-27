@@ -126,7 +126,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zpo-FH-jHQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1051" y="1384"/>
+            <point key="canvasLocation" x="1114" y="1383"/>
         </scene>
         <!--Food View Controller-->
         <scene sceneID="Ylg-IO-hky">
@@ -227,6 +227,7 @@
                     <navigationItem key="navigationItem" id="aPc-hv-grT">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="63Y-Bw-Hcr">
                             <connections>
+                                <action selector="editButtonAction:" destination="3bC-yi-zV6" id="TPT-uk-z9K"/>
                                 <segue destination="wuc-e6-RGP" kind="show" identifier="toEditMeals" id="WD3-Yz-4dh"/>
                             </connections>
                         </barButtonItem>
