@@ -180,11 +180,22 @@
                         <outlet property="newsView" destination="3Dn-IO-QvT" id="OUD-d1-uYV"/>
                         <outlet property="topView" destination="VWO-rP-gPu" id="bfR-kw-UDS"/>
                         <segue destination="PHQ-Rt-wo6" kind="presentation" identifier="foodDetail" id="2XP-Ze-T6E"/>
+                        <segue destination="ThP-je-bWc" kind="show" identifier="toSeeAll" id="Cai-Fz-vUW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="81.538461538461533" y="76.066350710900466"/>
+        </scene>
+        <!--SeeAllBadGood-->
+        <scene sceneID="Qba-2s-gJP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SeeAllBadGood" id="ThP-je-bWc" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="i0m-hP-PVT"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IjG-ck-eZc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="745" y="-51"/>
         </scene>
         <!--FoodDetail-->
         <scene sceneID="qep-Cl-t4q">

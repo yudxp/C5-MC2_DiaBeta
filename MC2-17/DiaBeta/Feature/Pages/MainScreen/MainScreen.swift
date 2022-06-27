@@ -54,11 +54,12 @@ class MainScreen: UIViewController {
   }
   
   @IBAction func seeAllGoodFood(_ sender: UIButton) {
-//    performSegue(withIdentifier: "identifiernya", sender: self)
-//    print("All Good Food")
+    performSegue(withIdentifier: "toSeeAll", sender: self)
+    print("All Good Food")
     
   }
   @IBAction func seeAllBadFood(_ sender: UIButton) {
+    performSegue(withIdentifier: "toSeeAll", sender: self)
     print("All Bad Food")
   }
   
