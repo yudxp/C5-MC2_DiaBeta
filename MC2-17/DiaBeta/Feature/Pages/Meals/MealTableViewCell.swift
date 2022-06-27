@@ -23,6 +23,7 @@ class MealTableViewCell: UITableViewCell {
         
         myImageView.layer.cornerRadius = 8
         myImageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        myImageView.contentMode = .scaleAspectFit
         
         myLabel.layer.masksToBounds = true
         myLabel.layer.cornerRadius = 8

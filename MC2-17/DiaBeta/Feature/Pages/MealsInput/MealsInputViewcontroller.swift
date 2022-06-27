@@ -45,6 +45,13 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
   @IBOutlet weak var TimePicker: UIDatePicker!
   @IBOutlet weak var saveButton: UIBarButtonItem!
   
+  @IBAction func tapFrame(_ sender: UITapGestureRecognizer) {
+    let picker = UIImagePickerController()
+    picker.sourceType = .camera
+    picker.allowsEditing = true
+    picker.delegate = self
+    present(picker, animated: true)
+  }
   
   var imagePickerController = UIImagePickerController()
   var picker = UIImagePickerController()
@@ -58,6 +65,7 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     cameraPreview.clipsToBounds = true
     cameraPreview.layer.borderWidth = 1
     cameraPreview.layer.borderColor = UIColor(named: "AccentColor")?.cgColor
+    cameraPreview.contentMode = .scaleAspectFit
     
     //Check All Permission
     checkPermission()
@@ -165,16 +173,13 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
   
   //MARK: - Image Input
   
-  @IBAction func tappedCameraButton(_ sender: Any) {
-    let picker = UIImagePickerController()
-    picker.sourceType = .camera
-    picker.allowsEditing = true
-    picker.delegate = self
-    present(picker, animated: true)
-    
-    
-    
-    
+//  @IBAction func tappedCameraButton(_ sender: Any) {
+//    let picker = UIImagePickerController()
+//    picker.sourceType = .camera
+//    picker.allowsEditing = true
+//    picker.delegate = self
+//    present(picker, animated: true)
+
 //    let defaultAction = UIAlertAction(title: "Camera",
 //                                      style: .default) { [self] (action) in
 //   // Respond to user selection of the action.
@@ -185,7 +190,6 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
 //              self.present(picker, animated:true)
 //
 
-//
 //    }
 //    let cancelAction = UIAlertAction(title: "Gallery",
 //                         style: .cancel) { (action) in
@@ -202,7 +206,7 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
 //
 //    self.present(alert, animated: true) {
 //    }
-  }
+//  }
     
   //MARK: - Check All Permission
   func checkPermission(){
@@ -232,8 +236,14 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
       imageCoreData = camera!
     }
     else{
-      cameraPreview?.image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
+        let rawimage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
+        let widthValue = 358
+        let heightValue = 195
+      let scaledImage: UIImage = imageValue(with: rawimage!, scaledTo: CGSize(width: widthValue, height: heightValue))
+      cameraPreview.contentMode = .scaleAspectFit
+//      cameraPreview?.image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
       
+      cameraPreview.image = scaledImage
 //      let imageData:NSData = cameraPreview?.image!.jpegData(compressionQuality: 0.5)! as NSData
 //      let camera = info[UIImagePickerController.InfoKey.originalImage] as? NSData
 //      //to tem
@@ -244,6 +254,14 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     
   }
   
+  func imageValue(with image: UIImage, scaledTo newSize: CGSize) -> UIImage {
+      UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+      image.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+      let newImage = UIGraphicsGetImageFromCurrentImageContext()
+      UIGraphicsEndImageContext()
+     // drawingImageView.image = newImage
+      return newImage ?? UIImage()
+  }
   // FOR DATA INPUT (Probably important if Date and Time method above is not working
   
   // Date
