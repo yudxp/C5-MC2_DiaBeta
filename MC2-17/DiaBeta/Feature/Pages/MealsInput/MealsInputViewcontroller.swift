@@ -27,7 +27,7 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
 //    // Use data from the view controller which initiated the unwind segue
 //  }
   
-  @IBOutlet weak var cameraButton: UIButton!
+//  @IBOutlet weak var cameraButton: UIButton!
   @IBOutlet weak var cameraPreview: UIImageView!
   @IBOutlet weak var foodUI: UIView!
   @IBOutlet weak var DateTime: UIView!

@@ -117,8 +117,11 @@ extension MainScreen: UICollectionViewDelegate, UICollectionViewDataSource{
   //prepare send data when click
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "foodDetail" {
-      let foodDetailVC = segue.destination as! FoodDetailViewController
-      foodDetailVC.foodDetail = selectedFoodInfo
+//      let foodDetailVC = segue.destination as! FoodDetailViewController
+//      foodDetailVC.foodDetail = selectedFoodInfo
+      let foodDetailVC = segue.destination as! UINavigationController
+      let detailTarget = foodDetailVC.topViewController as? FoodDetailViewController
+      detailTarget!.foodDetail = selectedFoodInfo
     }
   }
 }
