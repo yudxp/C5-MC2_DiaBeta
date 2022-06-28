@@ -231,9 +231,11 @@
                         <outlet property="preGlucoseView" destination="beo-nw-EXf" id="CGF-Ys-EyV"/>
                         <outlet property="saveButton" destination="me6-YM-sLx" id="soy-rW-gis"/>
                         <segue destination="GlL-fZ-1IZ" kind="show" identifier="mealsToCategory" id="NY0-2W-TGK"/>
+                        <segue destination="vVY-Zp-w24" kind="unwind" identifier="unwindToMeals" unwindAction="unwindToMeal:" id="RyP-bV-jcR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="urI-fT-QGH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="vVY-Zp-w24" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="YrX-YN-6fe">
                     <connections>
                         <action selector="tapFrame:" destination="CFj-br-Pc1" id="AX4-yX-0jU"/>

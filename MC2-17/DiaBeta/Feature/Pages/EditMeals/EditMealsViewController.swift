@@ -187,13 +187,13 @@ class EditMealsViewController: UIViewController, UIImagePickerControllerDelegate
 //    DBHelper.shared.editFood(postGula: preGula, timestamp: foodlist[foodlist.count-1].timestamp)
     let saveButtonAlert = UIAlertController(
       title: "Good job",
-      message: "Meals data added!",
+      message: "Meals data complete!",
       preferredStyle: .alert)
 
     let saveAlertAction = UIAlertAction(
       title: "Done",
       style: .default,
-      handler: nil)
+      handler: {_ in self.performSegue(withIdentifier: "unwindToMeals", sender: self)})
     saveButtonAlert.addAction(saveAlertAction)
     present(saveButtonAlert, animated: true, completion: nil)
     
