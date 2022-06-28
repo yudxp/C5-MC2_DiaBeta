@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Food Detail View Controller-->
+        <!--Meal Detail-->
         <scene sceneID="2dn-p3-bql">
             <objects>
                 <viewController storyboardIdentifier="FoodDetailViewController" id="Pwo-n3-76f" customClass="FoodDetailViewController" customModule="DiaBeta" customModuleProvider="target" sceneMemberID="viewController">
@@ -107,7 +107,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="atx-Ce-AF1"/>
+                    <navigationItem key="navigationItem" title="Meal Detail" id="atx-Ce-AF1"/>
                     <value key="contentSizeForViewInPopover" type="size" width="390" height="600"/>
                     <connections>
                         <outlet property="botFoodDetailView" destination="Bjx-Vo-YFN" id="IFw-yt-41M"/>
