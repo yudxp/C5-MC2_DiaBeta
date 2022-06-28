@@ -190,9 +190,11 @@
                         <outlet property="timePicker" destination="frQ-ve-QvX" id="lNT-eQ-3CJ"/>
                         <outlet property="timeView" destination="5oR-N7-7sM" id="du2-SE-Xj6"/>
                         <segue destination="NBy-mn-Bb4" kind="show" identifier="toEditCategory" id="2bw-zd-GpV"/>
+                        <segue destination="Cwt-qg-n6O" kind="unwind" identifier="unwindToMeals" unwindAction="unwindToMeal:" id="RaB-rU-LeH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V9k-5F-ajv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Cwt-qg-n6O" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1860" y="68.246445497630333"/>
         </scene>
@@ -242,7 +244,7 @@
         <!--Navigation Controller-->
         <scene sceneID="u1U-L6-hDF">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cGC-2F-vau" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="EditMealsNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cGC-2F-vau" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wGY-Li-U5b">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>

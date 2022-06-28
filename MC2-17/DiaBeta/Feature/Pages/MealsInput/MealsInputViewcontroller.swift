@@ -1,5 +1,6 @@
 import UIKit
 import Photos
+import UserNotifications
 
 class MealsInputViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
  
@@ -58,7 +59,7 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
   
   override func viewDidLoad() {
   super.viewDidLoad()
-    
+
     roundUIView()
     imagePickerController.delegate = self
     cameraPreview.layer.cornerRadius = 8
@@ -81,6 +82,7 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
   
   override func viewWillAppear(_ animated: Bool) {
     self.tabBarController?.tabBar.isHidden = false
+    registerLocal()
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -111,7 +113,6 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
 
 //MARK: - To Save
   @IBAction func saveAll(_ sender: Any) {
-    
     //To Gate Date and Time
     getDate(DatePicker: DatePicker.date)
     getTime(TimePicker: TimePicker.date)
@@ -146,9 +147,10 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     DBHelper.shared.createFood(timestamp: timeStampCoreData!, nama: namaCoreData!, category: kategoriCoreData, image: imageData!, preGula: preGulaCoreData!)
     
 //
-    foodlist = DBHelper.shared.getAllFood()
-    print(foodlist[foodlist.count-1].category as Any)
+//    foodlist = DBHelper.shared.getAllFood()
+//    print(foodlist[foodlist.count-1].category as Any)
 //    DBHelper.shared.editFood(postGula: preGula, timestamp: foodlist[foodlist.count-1].timestamp)
+    reminderLocal()
     
     let saveButtonAlert = UIAlertController(
       title: "Good job",
@@ -158,7 +160,7 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     let saveAlertAction = UIAlertAction(
       title: "Done",
       style: .default,
-      handler: nil)
+      handler: {_ in self.performSegue(withIdentifier: "unwindToMeals", sender: self)})
     saveButtonAlert.addAction(saveAlertAction)
     present(saveButtonAlert, animated: true, completion: nil)
     
@@ -238,13 +240,10 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     }
     else{
         let rawimage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
-        let widthValue = 358
-        let heightValue = 195
-      let scaledImage: UIImage = imageValue(with: rawimage!, scaledTo: CGSize(width: widthValue, height: heightValue))
-      cameraPreview.contentMode = .scaleAspectFit
+        let resizedImage = rawimage?.resized(to: CGSize(width: 358, height: 195))
 //      cameraPreview?.image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
       
-      cameraPreview.image = scaledImage
+        cameraPreview.image = resizedImage
 //      let imageData:NSData = cameraPreview?.image!.jpegData(compressionQuality: 0.5)! as NSData
 //      let camera = info[UIImagePickerController.InfoKey.originalImage] as? NSData
 //      //to tem
@@ -255,14 +254,6 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     
   }
   
-  func imageValue(with image: UIImage, scaledTo newSize: CGSize) -> UIImage {
-      UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-      image.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
-      let newImage = UIGraphicsGetImageFromCurrentImageContext()
-      UIGraphicsEndImageContext()
-     // drawingImageView.image = newImage
-      return newImage ?? UIImage()
-  }
   // FOR DATA INPUT (Probably important if Date and Time method above is not working
   
   // Date
@@ -314,6 +305,14 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
   
 }
 
+extension UIImage {
+    func resized(to size: CGSize) -> UIImage {
+        return UIGraphicsImageRenderer(size: size).image { _ in
+            draw(in: CGRect(origin: .zero, size: size))
+        }
+    }
+}
+
 extension MealsInputViewController: UITextFieldDelegate{
   func textFieldShouldReturn(_ foodTextField: UITextField) -> Bool {
     foodTextField.resignFirstResponder()
@@ -327,3 +326,110 @@ extension MealsInputViewController: FoodCategoryDelegate {
 //          print(kategoriCoreData)
   }
 }
+
+extension MealsInputViewController: UNUserNotificationCenterDelegate {
+  func registerLocal() {
+          let center = UNUserNotificationCenter.current()
+
+          center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+              if granted {
+                 print("Yay!")
+              } else {
+                  print("D'oh!")
+              }
+          }
+
+      }
+  
+  func reminderLocal() {
+          registerCategories()
+
+          let center = UNUserNotificationCenter.current()
+          center.removeAllPendingNotificationRequests()
+
+          let content = UNMutableNotificationContent()
+          content.title = "Post-Glucose"
+          content.body = "Please input your post-meal glucose"
+          content.categoryIdentifier = "alarm"
+          content.userInfo = ["customData": "fizzbuzz"]
+          content.sound = .default
+
+          let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+
+          let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+          center.add(request)
+  }
+  
+  func scheduleLocal() {
+          registerCategories()
+
+          let center = UNUserNotificationCenter.current()
+          center.removeAllPendingNotificationRequests()
+
+          let content = UNMutableNotificationContent()
+          content.title = "Post-Glucose"
+          content.body = "Please input your post-meal glucose"
+          content.categoryIdentifier = "alarm"
+          content.userInfo = ["customData": "fizzbuzz"]
+          content.sound = .default
+
+      //ini buat set kapan notifnya muncul -> ini muncul tiap jam 10 malam
+            var dateComponents = DateComponents()
+            dateComponents.calendar = Calendar.current
+            dateComponents.hour = 22
+            dateComponents.minute = 00
+
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+
+            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+            center.add(request)
+  }
+  
+  func registerCategories() {
+      let center = UNUserNotificationCenter.current()
+      center.delegate = self
+
+      let show = UNNotificationAction(identifier: "show", title: "Tell me more...", options: .foreground)
+      let category = UNNotificationCategory(identifier: "alarm", actions: [show], intentIdentifiers: [])
+
+      center.setNotificationCategories([category])
+  }
+
+//  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler:
+//                              @escaping() -> Void) {
+//
+////    let storyboard = UIStoryboard(name: "EditMeals", bundle: nil) //change to edit food with custom data
+//
+//    //initiate the view controller from storyboard
+////    let editNavController = storyboard.instantiateViewController(withIdentifier: "EditMealsNavigationController") as! UINavigationController
+////    let editFoodVC = editNavController.topViewController as! EditMealsViewController
+//////        foodlist = DBHelper.shared.getAllFood()
+////    editFoodVC.foodDetailSegue = DBHelper.shared.getTimeFood(timeStampCoreData ?? Date())
+////    self.present(editNavController, animated: true)
+//
+////      let userInfo = response.notification.request.content.userInfo
+//      // Print message ID
+//      let userInfo = response.notification.request.content.userInfo
+//
+//      if let customData = userInfo["customData"] as? String {
+//
+//          print("Custom data received: \(customData)") //MASUKIN DATE TIME NYA DISINI
+//
+//          switch response.actionIdentifier {
+//          case UNNotificationDefaultActionIdentifier:
+//              //buat user swipe pas unlock
+//                  print("Default identifier")
+//
+//          case "show" :
+//              print("Show more information...")
+//
+//          default:
+//              break
+//          }
+//      }
+//
+//      completionHandler()
+//  }
+//
+}
+
