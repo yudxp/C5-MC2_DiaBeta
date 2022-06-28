@@ -149,6 +149,7 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     foodlist = DBHelper.shared.getAllFood()
     print(foodlist[foodlist.count-1].category as Any)
 //    DBHelper.shared.editFood(postGula: preGula, timestamp: foodlist[foodlist.count-1].timestamp)
+    
     let saveButtonAlert = UIAlertController(
       title: "Good job",
       message: "Meals data added!",
