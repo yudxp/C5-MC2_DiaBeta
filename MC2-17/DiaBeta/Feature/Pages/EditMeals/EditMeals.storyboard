@@ -12,7 +12,7 @@
         <!--Meal Detail-->
         <scene sceneID="uzt-wf-5ka">
             <objects>
-                <viewController storyboardIdentifier="myGoals" useStoryboardIdentifierAsRestorationIdentifier="YES" id="C0j-ee-vNE" customClass="EditMealsViewController" customModule="DiaBeta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditMealsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="C0j-ee-vNE" customClass="EditMealsViewController" customModule="DiaBeta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nQ1-GP-2dB">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

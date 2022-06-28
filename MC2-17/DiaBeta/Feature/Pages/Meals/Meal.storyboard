@@ -13,7 +13,7 @@
         <!--Title-->
         <scene sceneID="Gq4-9x-Dzp">
             <objects>
-                <viewController id="1IZ-c7-L7d" customClass="MealViewController" customModule="DiaBeta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MealViewController" id="1IZ-c7-L7d" customClass="MealViewController" customModule="DiaBeta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="URe-m8-c6g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
