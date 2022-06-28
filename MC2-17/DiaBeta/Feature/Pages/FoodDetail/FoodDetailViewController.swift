@@ -21,7 +21,7 @@ class FoodDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("hehe")
+//        print("hehe")
         botFoodDetailView.layer.cornerRadius = 8
         categoryLabel.sizeToFit()
         detailImageView.layer.cornerRadius = 8
@@ -45,10 +45,6 @@ class FoodDetailViewController: UIViewController {
         else {
           topFoodDetailView.backgroundColor = UIColor.red
       }
-      self.navigationController?.setNavigationBarHidden(false, animated: false)
-      self.navigationController?.navigationItem.setHidesBackButton(false, animated: false)
-      self.navigationController?.visibleViewController?.navigationItem.title = "hola"
-//      self.navigationController?.navigationItem.title = "Hola"
       print("title")
     }
   

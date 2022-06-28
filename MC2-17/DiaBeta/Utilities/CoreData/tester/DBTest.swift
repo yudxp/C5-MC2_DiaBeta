@@ -70,10 +70,10 @@ class DBTest: UIViewController {
 //        }
         
         gulaList = DBHelper.shared.getAllGula()
-        print(gulaList.count)
-        for i in 0..<gulaList.count{
-            print(gulaList[i].event)
-        }
+//        print(gulaList.count)
+//        for i in 0..<gulaList.count{
+//            print(gulaList[i].event)
+//        }
 
 //        DBHelper.shared.createInfo(food: foodList[0], type: "bad", selisih: 69)
         DBHelper.shared.dailyUpdate()

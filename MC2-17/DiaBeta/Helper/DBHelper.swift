@@ -271,7 +271,7 @@ class DBHelper {
             let diff = Calendar.current.dateComponents([.day], from: currTimestamp, to: now)
             let diffDay = diff.day
             print("perbedaan hari:")
-            print(diffDay)
+            print(diffDay!)
             if(diffDay! >= 7){
                 deleteInfo(info: foodInfoList[i])
             }
