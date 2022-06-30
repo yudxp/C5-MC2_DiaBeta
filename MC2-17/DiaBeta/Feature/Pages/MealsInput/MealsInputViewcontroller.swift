@@ -19,16 +19,6 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
   //COBA POST
   var foodlist: [Food] = []
   
-//  @IBAction func unwindToMealsInput(_ unwindSegue: UIStoryboardSegue) {
-//    if unwindSegue.identifier == "mealsInputUnwind"{
-//      let sourceViewController = unwindSegue.source as! CategoryViewController
-//      kategoriCoreData = sourceViewController.categoryString
-//      print(kategoriCoreData)
-//    }
-//    // Use data from the view controller which initiated the unwind segue
-//  }
-  
-//  @IBOutlet weak var cameraButton: UIButton!
   @IBOutlet weak var cameraPreview: UIImageView!
   @IBOutlet weak var foodUI: UIView!
   @IBOutlet weak var DateTime: UIView!
@@ -127,29 +117,17 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
     
     
-    let date = dateFormatter.date(from:strDateTime!)
-    let date2 = date ?? Date()
+    let date = dateFormatter.date(from:strDateTime!) ?? Date()
+//    let date2 = date ?? Date()
     
     
-    timeStampCoreData = date2
-    
-    //Get Food dan input preGula
+    timeStampCoreData = date
     namaCoreData = foodTextField.text!
     preGulaCoreData =  Int64(preGlucoseTextField.text!)!
     
     let image = cameraPreview.image
     let imageData = image?.jpegData(compressionQuality: 0.5) as? NSData
-
-    
-    //
-//    kategoriCoreData = SharedInfo.shared.category
-    //to Core Data
     DBHelper.shared.createFood(timestamp: timeStampCoreData!, nama: namaCoreData!, category: kategoriCoreData, image: imageData!, preGula: preGulaCoreData!)
-    
-//
-//    foodlist = DBHelper.shared.getAllFood()
-//    print(foodlist[foodlist.count-1].category as Any)
-//    DBHelper.shared.editFood(postGula: preGula, timestamp: foodlist[foodlist.count-1].timestamp)
     reminderLocal()
     
     let saveButtonAlert = UIAlertController(
@@ -173,44 +151,6 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     performSegue(withIdentifier: "mealsToCategory", sender: sender)
   }
   
-  
-  //MARK: - Image Input
-  
-//  @IBAction func tappedCameraButton(_ sender: Any) {
-//    let picker = UIImagePickerController()
-//    picker.sourceType = .camera
-//    picker.allowsEditing = true
-//    picker.delegate = self
-//    present(picker, animated: true)
-
-//    let defaultAction = UIAlertAction(title: "Camera",
-//                                      style: .default) { [self] (action) in
-//   // Respond to user selection of the action.
-//              let picker = UIImagePickerController()
-//              picker.sourceType = .camera
-//              picker.allowsEditing = true
-//              picker.delegate = self
-//              self.present(picker, animated:true)
-//
-
-//    }
-//    let cancelAction = UIAlertAction(title: "Gallery",
-//                         style: .cancel) { (action) in
-//      self.imagePickerController.sourceType = .photoLibrary
-//      self.present(self.imagePickerController, animated: true, completion: nil)
-//    }
-//
-//    // Create and configure the alert controller.
-//    let alert = UIAlertController(title: "Method of Input",
-//          message: "Please Choose the methode to take the photo",
-//          preferredStyle: .alert)
-//    alert.addAction(defaultAction)
-//    alert.addAction(cancelAction)
-//
-//    self.present(alert, animated: true) {
-//    }
-//  }
-    
   //MARK: - Check All Permission
   func checkPermission(){
     if PHPhotoLibrary.authorizationStatus() != PHAuthorizationStatus.authorized{
@@ -241,67 +181,11 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     else{
         let rawimage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
         let resizedImage = rawimage?.resized(to: CGSize(width: 358, height: 195))
-//      cameraPreview?.image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
-      
         cameraPreview.image = resizedImage
-//      let imageData:NSData = cameraPreview?.image!.jpegData(compressionQuality: 0.5)! as NSData
-//      let camera = info[UIImagePickerController.InfoKey.originalImage] as? NSData
-//      //to tem
-//      imageCoreData = camera!
-    }
-    
-    picker.dismiss(animated: true, completion:nil)
-    
-  }
-  
-  // FOR DATA INPUT (Probably important if Date and Time method above is not working
-  
-  // Date
-//  func createDatePicker(){
-//
-//    inputDate.textAlignment = .center
-//    //toolbar
-//    let toolbar = UIToolbar()
-//    toolbar.sizeToFit()
-//
-//    //barbutton
-//    let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
-//    toolbar.setItems([doneBtn], animated: true)
-//
-//    //assign toolbar
-//    inputDate.inputAccessoryView = toolbar
-//
-//    //assign date picker to the text field
-//    inputDate.inputView = datePicker
-//
-//    datePicker.datePickerMode = .date
-//
-//  }
-//
-//  @objc func donePressed(){
-//    let formatter = DateFormatter()
-//    formatter.dateStyle = .medium
-//    formatter.timeStyle = .none
-//
-//    inputDate.text = formatter.string(from: datePicker.date)
-//    self.view.endEditing(true)
-//  }
-//
-//
-//  //Time
-//  @objc func timePickerValueChanged(sender: UIDatePicker){
-//    let formatter = DateFormatter()
-//    formatter.locale = Locale(identifier: "en_gb")
-//    formatter.dateFormat = "hh:mm"
-//    inputTime.text = formatter.string(from: sender.date)
-//  }
-  
-  
-  // Private Function
-  
 
-  
-  
+    }
+    picker.dismiss(animated: true, completion:nil)
+  }
   
 }
 
@@ -333,12 +217,11 @@ extension MealsInputViewController: UNUserNotificationCenterDelegate {
 
           center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
               if granted {
-                 print("Yay!")
+                 print("Access Granted!")
               } else {
-                  print("D'oh!")
+                  print("Access Denied!")
               }
           }
-
       }
   
   func reminderLocal() {
@@ -373,16 +256,16 @@ extension MealsInputViewController: UNUserNotificationCenterDelegate {
           content.userInfo = ["customData": "fizzbuzz"]
           content.sound = .default
 
-      //ini buat set kapan notifnya muncul -> ini muncul tiap jam 10 malam
-            var dateComponents = DateComponents()
-            dateComponents.calendar = Calendar.current
-            dateComponents.hour = 22
-            dateComponents.minute = 00
+          //Set schedule when alarm will happen
+          var dateComponents = DateComponents()
+          dateComponents.calendar = Calendar.current
+          dateComponents.hour = 22
+          dateComponents.minute = 00
 
-            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+          let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
 
-            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-            center.add(request)
+          let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+          center.add(request)
   }
   
   func registerCategories() {

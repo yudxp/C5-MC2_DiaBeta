@@ -11,8 +11,6 @@
 		150F7E1A286A6DFC0093BA30 /* SeeAllBadGoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F7E19286A6DFC0093BA30 /* SeeAllBadGoodViewController.swift */; };
 		150F7E21286A7E270093BA30 /* MealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F7E1F286A7E270093BA30 /* MealCell.swift */; };
 		150F7E22286A7E270093BA30 /* MealCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 150F7E20286A7E270093BA30 /* MealCell.xib */; };
-		150F7E24286AAAF50093BA30 /* CreateReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F7E23286AAAF50093BA30 /* CreateReminderViewController.swift */; };
-		150F7E26286AC96A0093BA30 /* NotifHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F7E25286AC96A0093BA30 /* NotifHelper.swift */; };
 		1595547F2860716500FDF192 /* GlucoseFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1595547D2860716500FDF192 /* GlucoseFoodCell.swift */; };
 		159554802860716500FDF192 /* GlucoseFoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1595547E2860716500FDF192 /* GlucoseFoodCell.xib */; };
 		15955483286076CE00FDF192 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15955481286076CE00FDF192 /* MainScreen.swift */; };
@@ -65,8 +63,6 @@
 		150F7E19286A6DFC0093BA30 /* SeeAllBadGoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllBadGoodViewController.swift; sourceTree = "<group>"; };
 		150F7E1F286A7E270093BA30 /* MealCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealCell.swift; sourceTree = "<group>"; };
 		150F7E20286A7E270093BA30 /* MealCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MealCell.xib; sourceTree = "<group>"; };
-		150F7E23286AAAF50093BA30 /* CreateReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReminderViewController.swift; sourceTree = "<group>"; };
-		150F7E25286AC96A0093BA30 /* NotifHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifHelper.swift; sourceTree = "<group>"; };
 		1595547D2860716500FDF192 /* GlucoseFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlucoseFoodCell.swift; sourceTree = "<group>"; };
 		1595547E2860716500FDF192 /* GlucoseFoodCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GlucoseFoodCell.xib; sourceTree = "<group>"; };
 		15955481286076CE00FDF192 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
@@ -300,8 +296,6 @@
 			children = (
 				15F087AD286744D200EB8E19 /* SharedInfo.swift */,
 				3C3FB4382854971F0072351F /* DBHelper.swift */,
-				150F7E23286AAAF50093BA30 /* CreateReminderViewController.swift */,
-				150F7E25286AC96A0093BA30 /* NotifHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -492,7 +486,6 @@
 				15F087AA286743BF00EB8E19 /* MealsInputViewcontroller.swift in Sources */,
 				150F7E21286A7E270093BA30 /* MealCell.swift in Sources */,
 				F91B516128689EB200584437 /* EditMealsViewController.swift in Sources */,
-				150F7E26286AC96A0093BA30 /* NotifHelper.swift in Sources */,
 				3C2985F5285DE77400694432 /* FoodInfo+CoreDataClass.swift in Sources */,
 				3CB2299528530A4D0054797B /* DummyViewController.swift in Sources */,
 				F94930E6284E549D005C0B43 /* SceneDelegate.swift in Sources */,
@@ -513,7 +506,6 @@
 				3C3FB4392854971F0072351F /* DBHelper.swift in Sources */,
 				3C2985F4285DE77400694432 /* Food+CoreDataProperties.swift in Sources */,
 				3C2985F6285DE77400694432 /* FoodInfo+CoreDataProperties.swift in Sources */,
-				150F7E24286AAAF50093BA30 /* CreateReminderViewController.swift in Sources */,
 				3CAE5DC5286857BD00958712 /* MealViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
