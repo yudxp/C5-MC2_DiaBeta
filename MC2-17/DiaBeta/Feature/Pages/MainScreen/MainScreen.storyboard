@@ -181,6 +181,7 @@
                         <outlet property="topView" destination="VWO-rP-gPu" id="bfR-kw-UDS"/>
                         <segue destination="PHQ-Rt-wo6" kind="presentation" identifier="foodDetail" id="2XP-Ze-T6E"/>
                         <segue destination="ThP-je-bWc" kind="show" identifier="toSeeAll" id="Cai-Fz-vUW"/>
+                        <segue destination="VWc-k3-T66" kind="show" identifier="toSeeAllBad" id="Mnz-jP-Rs9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -206,6 +207,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xuq-Gm-NIq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="745" y="32"/>
+        </scene>
+        <!--SeeAllBad-->
+        <scene sceneID="E5Q-Dt-enk">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SeeAllBad" id="VWc-k3-T66" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="XVN-f0-pg8"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="194-pD-cN5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="769" y="97"/>
         </scene>
     </scenes>
     <resources>

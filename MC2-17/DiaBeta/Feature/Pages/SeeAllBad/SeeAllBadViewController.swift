@@ -1,13 +1,13 @@
 //
-//  SeeAllBadGoodViewController.swift
+//  SeeAllBadViewController.swift
 //  DiaBeta
 //
-//  Created by Yudha Hamdi Arzi on 28/06/22.
+//  Created by Vincentius Ian Widi Nugroho on 04/07/22.
 //
 
 import UIKit
 
-class SeeAllBadGoodViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SeeAllBadViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var foodTable: UITableView!
     
@@ -65,7 +65,7 @@ class SeeAllBadGoodViewController: UIViewController, UITableViewDelegate, UITabl
         foodTable.dataSource = self
         
         dateFormatter.dateFormat = "HH:mm"
-        foodInfos = DBHelper.shared.getGood()
+        foodInfos = DBHelper.shared.getBad()
         // Do any additional setup after loading the view.
     }
 
