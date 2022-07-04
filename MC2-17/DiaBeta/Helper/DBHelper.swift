@@ -152,6 +152,28 @@ class DBHelper {
         }
     }
     
+    func getHighest() -> GulaDarah {
+        gulaList = getWeekGula(Date())
+        var maks: GulaDarah = gulaList[0]
+        for i in 0..<gulaList.count{
+            if(gulaList[i].jumlah > maks.jumlah){
+                maks = gulaList[i]
+            }
+        }
+        return maks
+    }
+    
+    func getLowest() -> GulaDarah {
+        gulaList = getWeekGula(Date())
+        var mins: GulaDarah = gulaList[0]
+        for i in 0..<gulaList.count{
+            if(gulaList[i].jumlah < mins.jumlah){
+                mins = gulaList[i]
+            }
+        }
+        return mins
+    }
+    
     // function foodInfo
     // menghitung dan menentukan apakah masuk foodinfo atau tidak
     func calculate(timestamp: Date){

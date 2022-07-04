@@ -654,9 +654,13 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SLXHN25QU8;
+				DEVELOPMENT_TEAM = C77567662R;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DiaBeta/Info.plist;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "This apps need to access your library";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This apps need to use your camera";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "This apps need to access your photo";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This apps need to access your photo";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -668,7 +672,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fattah2402.DiaBeta;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fattah2402.DiaBetaIan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -685,9 +689,13 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SLXHN25QU8;
+				DEVELOPMENT_TEAM = C77567662R;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DiaBeta/Info.plist;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "This apps need to access your library";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This apps need to use your camera";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "This apps need to access your photo";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This apps need to access your photo";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -699,7 +707,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fattah2402.DiaBeta;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fattah2402.DiaBetaIan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
