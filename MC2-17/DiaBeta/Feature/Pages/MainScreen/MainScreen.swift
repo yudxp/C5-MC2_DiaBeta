@@ -59,7 +59,7 @@ class MainScreen: UIViewController, UNUserNotificationCenterDelegate {
   }
   
   @IBAction func seeAllBadFood(_ sender: UIButton) {
-    performSegue(withIdentifier: "toSeeAll", sender: self)
+    performSegue(withIdentifier: "toSeeAllBad", sender: self)
     print("All Bad Food")
   }
   

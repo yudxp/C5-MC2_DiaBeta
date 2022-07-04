@@ -28,6 +28,8 @@
 		15F087AB286743C000EB8E19 /* MealsInput.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15F087A7286743BF00EB8E19 /* MealsInput.storyboard */; };
 		15F087AE286744D200EB8E19 /* SharedInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F087AD286744D200EB8E19 /* SharedInfo.swift */; };
 		15F087B02867F3BF00EB8E19 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F087AF2867F3BF00EB8E19 /* CategoryViewController.swift */; };
+		3C0E2C3A2872E12200218238 /* SeeAllBad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C0E2C392872E12200218238 /* SeeAllBad.storyboard */; };
+		3C0E2C3C2872E15500218238 /* SeeAllBadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0E2C3B2872E15500218238 /* SeeAllBadViewController.swift */; };
 		3C2985F3285DE77400694432 /* Food+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2985ED285DE77400694432 /* Food+CoreDataClass.swift */; };
 		3C2985F4285DE77400694432 /* Food+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2985EE285DE77400694432 /* Food+CoreDataProperties.swift */; };
 		3C2985F5285DE77400694432 /* FoodInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2985EF285DE77400694432 /* FoodInfo+CoreDataClass.swift */; };
@@ -80,6 +82,8 @@
 		15F087A7286743BF00EB8E19 /* MealsInput.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MealsInput.storyboard; sourceTree = "<group>"; };
 		15F087AD286744D200EB8E19 /* SharedInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedInfo.swift; sourceTree = "<group>"; };
 		15F087AF2867F3BF00EB8E19 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		3C0E2C392872E12200218238 /* SeeAllBad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SeeAllBad.storyboard; sourceTree = "<group>"; };
+		3C0E2C3B2872E15500218238 /* SeeAllBadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllBadViewController.swift; sourceTree = "<group>"; };
 		3C2985ED285DE77400694432 /* Food+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3C2985EE285DE77400694432 /* Food+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3C2985EF285DE77400694432 /* FoodInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FoodInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -208,6 +212,15 @@
 			path = MealsInput;
 			sourceTree = "<group>";
 		};
+		3C0E2C382872E0F700218238 /* SeeAllBad */ = {
+			isa = PBXGroup;
+			children = (
+				3C0E2C392872E12200218238 /* SeeAllBad.storyboard */,
+				3C0E2C3B2872E15500218238 /* SeeAllBadViewController.swift */,
+			);
+			path = SeeAllBad;
+			sourceTree = "<group>";
+		};
 		3C3FB42828546B1F0072351F /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +268,7 @@
 		3CB2298F2852FA060054797B /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				3C0E2C382872E0F700218238 /* SeeAllBad */,
 				150F7E16286A6DA70093BA30 /* SeeAll */,
 				F91B515F28689DC800584437 /* EditMeals */,
 				3CAE5DBA286857BD00958712 /* Meals */,
@@ -470,6 +484,7 @@
 				F91B516528689F8E00584437 /* EditMeals.storyboard in Resources */,
 				3CB229A328530C7D0054797B /* DayFoodCell.xib in Resources */,
 				15F0878E2860C3EA00EB8E19 /* Sample.storyboard in Resources */,
+				3C0E2C3A2872E12200218238 /* SeeAllBad.storyboard in Resources */,
 				15F087AB286743C000EB8E19 /* MealsInput.storyboard in Resources */,
 				3C3FB437285490090072351F /* siomay.jpeg in Resources */,
 				159554802860716500FDF192 /* GlucoseFoodCell.xib in Resources */,
@@ -505,6 +520,7 @@
 				15F087922860C53E00EB8E19 /* SampleViewController.swift in Sources */,
 				1595548C2860BFF900FDF192 /* FoodDetailViewController.swift in Sources */,
 				15F087AE286744D200EB8E19 /* SharedInfo.swift in Sources */,
+				3C0E2C3C2872E15500218238 /* SeeAllBadViewController.swift in Sources */,
 				15F087A9286743BF00EB8E19 /* DictionaryExtension.swift in Sources */,
 				3C3FB42D28546BCE0072351F /* DBTest.swift in Sources */,
 				3CB229A228530C7D0054797B /* DayFoodCell.swift in Sources */,
