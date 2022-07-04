@@ -27,7 +27,6 @@ class MainScreen: UIViewController, UNUserNotificationCenterDelegate {
   var selectedFoodInfo: FoodInfo?
 
   
-
   override func viewDidLoad() {
         super.viewDidLoad()
         self.topView.backgroundColor = UIColor(named: "AccentColor")
