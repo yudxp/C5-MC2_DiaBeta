@@ -21,7 +21,6 @@ class FoodDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print("hehe")
         botFoodDetailView.layer.cornerRadius = 8
         categoryLabel.sizeToFit()
         detailImageView.layer.cornerRadius = 8

@@ -17,21 +17,8 @@ class CategoryViewController: UIViewController {
     var foodCategory = ["Dairy", "Fruit", "Grains", "Protein", "Starch", "Sweets", "Vegetables"]
     var saveFoodCategory:[Bool] = [false,false,false,false,false,false,false]
 
-//    var categoryDict = ["Dairy": false, "Fruit": false, "Grains": false, "Protein" : false, "Starch" : false, "Sweets" : false, "Vegetables" : false]
-//    var categoryIndex = ["Dairy": 1, "Fruit": 2, "Grains": 3, "Protein" : 4, "Starch" : 5, "Sweets" : 6, "Vegetables" : 7]
   @IBOutlet weak var categoryTable: UITableView!
   weak var delegate: FoodCategoryDelegate?
-  
-//  override func willmo(_ animated: Bool) {
-//    var categoryString: [String] = []
-//    for index in 0..<foodCategory.count {
-//      if saveFoodCategory[index] == true {
-//        categoryString.append(foodCategory[index])
-//      }
-//    }
-//    delegate?.saveData(category: categoryString)
-//    print("test")
-//  }
   
   override func willMove(toParent parent: UIViewController?) {
     var categoryString: [String] = []
@@ -41,35 +28,12 @@ class CategoryViewController: UIViewController {
       }
     }
     delegate?.saveData(category: categoryString)
-//    print("test")
   }
   
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//    if segue.identifier == "mealsInputUnwind" {
-//      categoryString.removeAll()
-//      for index in 0..<foodCategory.count {
-//        if saveFoodCategory[index] == true {
-//          categoryString.append(foodCategory[index])
-//        }
-//      }
-//    }
-//  }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
