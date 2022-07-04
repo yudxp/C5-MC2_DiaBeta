@@ -131,7 +131,6 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MealTableViewCell", for: indexPath) as! MealTableViewCell
-        
         let selisih = foodInfos[indexPath.row].postGula - foodInfos[indexPath.row].preGula
         let category = foodInfos[indexPath.row].category?.joined(separator: ", ")
         let rowDate = dateFormatter.string(from: (foodInfos[indexPath.row].timestamp! as Date))
@@ -151,10 +150,9 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.myLabel2.text = foodInfos[indexPath.row].name
         cell.myLabel3.text = category
         cell.myLabel4.text = rowDate
-//        cell.myImageView.image = UIImage(data: foodInfos[indexPath.row].photo !as Data
         cell.myImageView.image = UIImage(data: (foodInfos[indexPath.row].photo)!as Data)
-      cell.myImageView.contentMode = .scaleAspectFit
-      cell.myImageView.layer.masksToBounds = true
+        cell.myImageView.contentMode = .scaleAspectFit
+        cell.myImageView.layer.masksToBounds = true
     
         return cell
     }
