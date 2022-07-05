@@ -49,7 +49,7 @@ class SeeAllBadViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.myLabel4.text = rowDate
 //        cell.myImageView.image = UIImage(data: foodInfos[indexPath.row].photo !as Data
         cell.myImageView.image = UIImage(data: (foodInfos[indexPath.row].food!.photo)!as Data)
-      cell.myImageView.contentMode = .scaleAspectFit
+      cell.myImageView.contentMode = .scaleAspectFill
       cell.myImageView.layer.masksToBounds = true
     
         return cell

@@ -56,7 +56,8 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     cameraPreview.clipsToBounds = true
     cameraPreview.layer.borderWidth = 1
     cameraPreview.layer.borderColor = UIColor(named: "AccentColor")?.cgColor
-    cameraPreview.contentMode = .scaleAspectFit
+    cameraPreview.contentMode = .scaleAspectFill
+    cameraPreview.clipsToBounds = true
     
     //Check All Permission
     checkPermission()
@@ -112,9 +113,7 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     getTime(TimePicker: TimePicker.date)
     //To Combine the String
     strDateTime = strDate!+" "+strTime!
-    
-    print(strDateTime!)
-    
+        
     //To Change the Format into Date Again
     let dateFormatter = DateFormatter()
     dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
@@ -184,8 +183,9 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     }
     else{
         let rawimage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
-        let resizedImage = rawimage?.resized(to: CGSize(width: 358, height: 195))
-        cameraPreview.image = resizedImage
+//        let resizedImage = rawimage?.resized(to: CGSize(width: 358, height: 195))
+//        cameraPreview.image = resizedImage
+        cameraPreview.image = rawimage
 
     }
     picker.dismiss(animated: true, completion:nil)

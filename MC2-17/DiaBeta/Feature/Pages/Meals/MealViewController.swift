@@ -82,7 +82,7 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.dataSource = self
         
         dateFormatter.dateFormat = "HH:mm"
-        foodInfos = DBHelper.shared.getAllFood()
+        foodInfos = DBHelper.shared.getDateFood(weekDate[0])
     
     }
     
@@ -151,7 +151,7 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.myLabel3.text = category
         cell.myLabel4.text = rowDate
         cell.myImageView.image = UIImage(data: (foodInfos[indexPath.row].photo)!as Data)
-        cell.myImageView.contentMode = .scaleAspectFit
+        cell.myImageView.contentMode = .scaleAspectFill
         cell.myImageView.layer.masksToBounds = true
     
         return cell

@@ -404,6 +404,7 @@ class DBHelper {
     // editFood untuk hlmn update post gula, timestamp diisi gula pre makan
     func editFood(postGula: Int64, timestamp: Date){
         let editedFood: Food = getTimeFood(timestamp)
+        print(editedFood.name)
         //for testing
 //        let formatter = DateFormatter()
 //        formatter.dateFormat = "yyyy/MM/dd HH:mm"

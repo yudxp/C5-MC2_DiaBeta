@@ -22,7 +22,11 @@ class FoodViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.bringSubviewToFront(detailImgView)
+        self.view.sendSubviewToBack(topFoodDetView)
         detailImgView.layer.cornerRadius = 8
+        detailImgView.contentMode = .scaleAspectFill
+        detailImgView.clipsToBounds = true
         categoryLbl.sizeToFit()
         botFoodDetView.layer.cornerRadius = 8
         detailImgView.image = UIImage(data: (foodDetail?.photo)!as Data)
