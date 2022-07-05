@@ -39,7 +39,7 @@ class EditMealsViewController: UIViewController, UIImagePickerControllerDelegate
   var imagePickerController = UIImagePickerController()
   var picker = UIImagePickerController()
   
-    override func viewDidLoad() {
+  override func viewDidLoad() {
     super.viewDidLoad()
     cameraPreview.image = UIImage(data: (foodDetailSegue?.photo)!as Data)
     foodName.text = foodDetailSegue?.name
@@ -50,6 +50,7 @@ class EditMealsViewController: UIViewController, UIImagePickerControllerDelegate
     roundUIView()
     imagePickerController.delegate = self
     cameraPreview.layer.cornerRadius = 8
+    cameraPreview.contentMode = .scaleAspectFill
     cameraPreview.clipsToBounds = true
     cameraPreview.layer.borderWidth = 1
     cameraPreview.layer.borderColor = UIColor(named: "AccentColor")?.cgColor
