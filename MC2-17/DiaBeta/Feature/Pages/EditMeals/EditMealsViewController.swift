@@ -62,9 +62,13 @@ class EditMealsViewController: UIViewController, UIImagePickerControllerDelegate
 
 //MARK: - Rounding the View
   private func roundUIView(){
+    foodUI.layer.cornerRadius = 8
+    category.layer.cornerRadius = 8
     dateTime.layer.cornerRadius = 8
     dateView.layer.cornerRadius = 5
     timeView.layer.cornerRadius = 5
+    preGlucoseView.layer.cornerRadius = 8
+    postGlucoseView.layer.cornerRadius = 8
   }
   
 //MARK: - Get Date Data

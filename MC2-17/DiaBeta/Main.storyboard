@@ -55,13 +55,5 @@
             </objects>
             <point key="canvasLocation" x="1492" y="228"/>
         </scene>
-        <!--Storyboard Reference-->
-        <scene sceneID="NNI-K4-cWE">
-            <objects>
-                <viewControllerPlaceholder id="ifM-gk-fdH" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="srL-og-THe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1455" y="324"/>
-        </scene>
     </scenes>
 </document>

@@ -67,6 +67,7 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     
     foodTextField.delegate = self
     preGlucoseTextField.delegate = self
+    DatePicker.isUserInteractionEnabled = false
     
   }
   
@@ -83,9 +84,12 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
   }
 //MARK: - Rounding the View
   private func roundUIView(){
+    foodUI.layer.cornerRadius = 8
+    Category.layer.cornerRadius = 8
     DateTime.layer.cornerRadius = 8
     DateView.layer.cornerRadius = 5
     TimeView.layer.cornerRadius = 5
+    preGlucoseView.layer.cornerRadius = 8
   }
   
 //MARK: - Get Date Data

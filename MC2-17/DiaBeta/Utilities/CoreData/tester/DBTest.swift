@@ -28,8 +28,8 @@ class DBTest: UIViewController {
         // set date
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd HH:mm"
-        let someDateTime = formatter.date(from: "2022/07/03 13:47")! as Date
-        let someDateTime2 = formatter.date(from: "2022/07/04 09:30")! as Date
+//        let someDateTime = formatter.date(from: "2022/07/03 13:47")! as Date
+//        let someDateTime2 = formatter.date(from: "2022/07/04 09:30")! as Date
 //        let chosenDateTime = formatter.date(from: "2016/10/08 02:31")! as Date
 //
 //        // set image to NSData
