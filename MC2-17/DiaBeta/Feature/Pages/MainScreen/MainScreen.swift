@@ -95,7 +95,7 @@ extension MainScreen: UICollectionViewDelegate, UICollectionViewDataSource{
     if collectionView == foodCollectionView {
       cell.foodImage.image = UIImage(data: (goodFoodInfo[indexPath.row].food?.photo)! as Data)
       cell.foodName.text = goodFoodInfo[indexPath.row].food?.name
-      let stringArr = goodFoodInfo[indexPath.row].food?.category!
+      let stringArr = goodFoodInfo[indexPath.row].food?.category
       let categoryArr = stringArr!.joined(separator: ",")
       cell.foodLabel.text = categoryArr
       cell.glucoseLabel.text = "+ " + String(goodFoodInfo[indexPath.row].selisih) + " mg/dL"
@@ -105,8 +105,8 @@ extension MainScreen: UICollectionViewDelegate, UICollectionViewDataSource{
     else {
       cell.foodImage.image = UIImage(data: (badFoodInfo[indexPath.row].food?.photo)!as Data)
       cell.foodName.text = badFoodInfo[indexPath.row].food?.name
-      let stringArr = badFoodInfo[indexPath.row].food?.category!
-      let categoryArr = stringArr!.joined(separator: ",")
+      let stringArr = badFoodInfo[indexPath.row].food?.category
+      let categoryArr = stringArr?.joined(separator: ",")
       cell.foodLabel.text = categoryArr
       cell.glucoseLabel.text = "+ " + String(badFoodInfo[indexPath.row].selisih) + " mg/dL"
       cell.glucoseLabel.backgroundColor = UIColor.red
@@ -120,7 +120,7 @@ extension MainScreen: UICollectionViewDelegate, UICollectionViewDataSource{
     if segue.identifier == "foodDetail" {
       let foodDetailVC = segue.destination as! UINavigationController
       let detailTarget = foodDetailVC.topViewController as? FoodDetailViewController
-      detailTarget!.foodDetail = selectedFoodInfo
+      detailTarget?.foodDetail = selectedFoodInfo
     }
   }
 }

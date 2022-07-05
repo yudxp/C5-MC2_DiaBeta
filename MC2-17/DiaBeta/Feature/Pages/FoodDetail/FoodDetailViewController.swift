@@ -26,8 +26,8 @@ class FoodDetailViewController: UIViewController {
         detailImageView.layer.cornerRadius = 8
 
       
-        let categoryArray = foodDetail?.food?.category!
-        let stringFromArray = categoryArray!.joined(separator: ",")
+        let categoryArray = foodDetail?.food?.category
+        let stringFromArray = categoryArray?.joined(separator: ",")
         let date = foodDetail?.food?.timestamp
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
@@ -35,7 +35,7 @@ class FoodDetailViewController: UIViewController {
         preGlucoseLabel.text = "\(Int(foodDetail?.food?.preGula ?? 0))"
         postGlucoseLabel.text = "\(Int(foodDetail?.food?.postGula ?? 0))"
         categoryLabel.text = stringFromArray
-        dateTimeLabel.text = dateFormatter.string(from: date!)
+        dateTimeLabel.text = dateFormatter.string(from: date ?? Date())
         foodNameLabel.text = foodDetail?.food?.name
         let glucoseDifference = Int(foodDetail?.selisih ?? 0)
         if glucoseDifference < 30 {

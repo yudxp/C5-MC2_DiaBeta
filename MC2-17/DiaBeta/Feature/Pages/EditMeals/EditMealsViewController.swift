@@ -62,36 +62,40 @@ class EditMealsViewController: UIViewController, UIImagePickerControllerDelegate
 
 //MARK: - Rounding the View
   private func roundUIView(){
+    foodUI.layer.cornerRadius = 8
+    category.layer.cornerRadius = 8
     dateTime.layer.cornerRadius = 8
     dateView.layer.cornerRadius = 5
     timeView.layer.cornerRadius = 5
+    preGlucoseView.layer.cornerRadius = 8
+    postGlucoseView.layer.cornerRadius = 8
   }
   
 //MARK: - Get Date Data
   
-  func getDate(DatePicker: Date){
-    let dateFormatr = DateFormatter()
-    dateFormatr.dateFormat = "yyyy/MM/dd"
-    strDate = dateFormatr.string(from: (DatePicker))
-  }
-  func getTime(TimePicker: Date){
-    let dateFormatr2 = DateFormatter()
-    dateFormatr2.dateFormat = "HH:mm"
-    strTime = dateFormatr2.string(from: (TimePicker))
-  }
+//  func getDate(DatePicker: Date){
+//    let dateFormatr = DateFormatter()
+//    dateFormatr.dateFormat = "yyyy/MM/dd"
+//    strDate = dateFormatr.string(from: (DatePicker))
+//  }
+//  func getTime(TimePicker: Date){
+//    let dateFormatr2 = DateFormatter()
+//    dateFormatr2.dateFormat = "HH:mm"
+//    strTime = dateFormatr2.string(from: (TimePicker))
+//  }
 
 //MARK: - To Save
   @IBAction func saveAll(_ sender: Any) {
     
-    // To Gate Date and Time
-    getDate(DatePicker: datePicker.date)
-    getTime(TimePicker: timePicker.date)
-    // To Combine the String
-    strDateTime = strDate!+" "+strTime!
+//    // To Gate Date and Time
+//    getDate(DatePicker: datePicker.date)
+//    getTime(TimePicker: timePicker.date)
+//    // To Combine the String
+//    strDateTime = strDate!+" "+strTime!
     
     let date = foodDetailSegue?.timestamp
-    let postGulaText = Int64(postGlucoseTextField.text ?? "0")!
-    DBHelper.shared.editFood(postGula: postGulaText, timestamp: date!)
+    let postGulaText = Int64(postGlucoseTextField.text ?? "0") ?? 0
+    DBHelper.shared.editFood(postGula: postGulaText, timestamp: (date ?? Date()))
     
     let saveButtonAlert = UIAlertController(
       title: "Good job",

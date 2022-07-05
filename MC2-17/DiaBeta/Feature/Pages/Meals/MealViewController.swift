@@ -92,10 +92,10 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
      //If you want pass data while segue you can use prepare segue method
     }
     
-  @IBAction func unwindToMeal(_ unwindSegue: UIStoryboardSegue) {
-    let sourceViewController = unwindSegue.source
-    // Use data from the view controller which initiated the unwind segue
-  }
+//  @IBAction func unwindToMeal(_ unwindSegue: UIStoryboardSegue) {
+//     let sourceViewController = unwindSegue.source
+//    // Use data from the view controller which initiated the unwind segue
+//  }
 
   
     func getWeeks() {
@@ -106,7 +106,7 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
         calendar.timeZone = NSTimeZone.local
         while (i != -7){
             let datetoAdd = calendar.date(byAdding: .day, value: i, to: dateCur)
-            weekDate.append(datetoAdd!)
+          weekDate.append(datetoAdd ?? Date())
             print(datetoAdd!)
             let dateString = dateFormatter.string(from: datetoAdd!)
             if(i == 0){
