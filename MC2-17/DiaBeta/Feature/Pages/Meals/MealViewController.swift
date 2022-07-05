@@ -106,7 +106,7 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
         calendar.timeZone = NSTimeZone.local
         while (i != -7){
             let datetoAdd = calendar.date(byAdding: .day, value: i, to: dateCur)
-            weekDate.append(datetoAdd!)
+          weekDate.append(datetoAdd ?? Date())
             print(datetoAdd!)
             let dateString = dateFormatter.string(from: datetoAdd!)
             if(i == 0){

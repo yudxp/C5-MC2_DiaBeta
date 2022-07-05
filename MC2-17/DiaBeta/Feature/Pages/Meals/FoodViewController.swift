@@ -27,13 +27,13 @@ class FoodViewController: UIViewController {
         botFoodDetView.layer.cornerRadius = 8
         detailImgView.image = UIImage(data: (foodDetail?.photo)!as Data)
         foodNameLbl.text = foodDetail?.name
-        let categoryArray = foodDetail?.category!
-        let stringFromArray = categoryArray!.joined(separator: ",")
+        let categoryArray = foodDetail?.category
+      let stringFromArray = categoryArray?.joined(separator: ",")
         categoryLbl.text = stringFromArray
         let date = foodDetail?.timestamp
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
-        dateTimeLbl.text = dateFormatter.string(from: date!)
+      dateTimeLbl.text = dateFormatter.string(from: date ?? Date())
         preGlucoseLbl.text = "\(Int(foodDetail?.preGula ?? 0))"
         postGlucoseLbl.text = "\(Int(foodDetail?.postGula ?? 0))"
     }
