@@ -56,7 +56,8 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     cameraPreview.clipsToBounds = true
     cameraPreview.layer.borderWidth = 1
     cameraPreview.layer.borderColor = UIColor(named: "AccentColor")?.cgColor
-    cameraPreview.contentMode = .scaleAspectFit
+    cameraPreview.contentMode = .scaleAspectFill
+    cameraPreview.clipsToBounds = true
     
     //Check All Permission
     checkPermission()
@@ -67,6 +68,7 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     
     foodTextField.delegate = self
     preGlucoseTextField.delegate = self
+    DatePicker.isUserInteractionEnabled = false
     
   }
   
@@ -83,9 +85,12 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
   }
 //MARK: - Rounding the View
   private func roundUIView(){
+    foodUI.layer.cornerRadius = 8
+    Category.layer.cornerRadius = 8
     DateTime.layer.cornerRadius = 8
     DateView.layer.cornerRadius = 5
     TimeView.layer.cornerRadius = 5
+    preGlucoseView.layer.cornerRadius = 8
   }
   
 //MARK: - Get Date Data
@@ -108,9 +113,7 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     getTime(TimePicker: TimePicker.date)
     //To Combine the String
     strDateTime = strDate!+" "+strTime!
-    
-    print(strDateTime!)
-    
+        
     //To Change the Format into Date Again
     let dateFormatter = DateFormatter()
     dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
@@ -180,8 +183,9 @@ class MealsInputViewController: UIViewController, UIImagePickerControllerDelegat
     }
     else{
         let rawimage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
-        let resizedImage = rawimage?.resized(to: CGSize(width: 358, height: 195))
-        cameraPreview.image = resizedImage
+//        let resizedImage = rawimage?.resized(to: CGSize(width: 358, height: 195))
+//        cameraPreview.image = resizedImage
+        cameraPreview.image = rawimage
 
     }
     picker.dismiss(animated: true, completion:nil)

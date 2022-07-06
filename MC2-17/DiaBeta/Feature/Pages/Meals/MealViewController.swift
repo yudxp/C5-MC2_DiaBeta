@@ -82,7 +82,7 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.dataSource = self
         
         dateFormatter.dateFormat = "HH:mm"
-        foodInfos = DBHelper.shared.getAllFood()
+        foodInfos = DBHelper.shared.getDateFood(weekDate[0])
     
     }
     
@@ -92,10 +92,10 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
      //If you want pass data while segue you can use prepare segue method
     }
     
-  @IBAction func unwindToMeal(_ unwindSegue: UIStoryboardSegue) {
-    let sourceViewController = unwindSegue.source
-    // Use data from the view controller which initiated the unwind segue
-  }
+//  @IBAction func unwindToMeal(_ unwindSegue: UIStoryboardSegue) {
+//     let sourceViewController = unwindSegue.source
+//    // Use data from the view controller which initiated the unwind segue
+//  }
 
   
     func getWeeks() {
@@ -106,7 +106,7 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
         calendar.timeZone = NSTimeZone.local
         while (i != -7){
             let datetoAdd = calendar.date(byAdding: .day, value: i, to: dateCur)
-            weekDate.append(datetoAdd!)
+          weekDate.append(datetoAdd ?? Date())
             print(datetoAdd!)
             let dateString = dateFormatter.string(from: datetoAdd!)
             if(i == 0){
@@ -151,7 +151,7 @@ class MealViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.myLabel3.text = category
         cell.myLabel4.text = rowDate
         cell.myImageView.image = UIImage(data: (foodInfos[indexPath.row].photo)!as Data)
-        cell.myImageView.contentMode = .scaleAspectFit
+        cell.myImageView.contentMode = .scaleAspectFill
         cell.myImageView.layer.masksToBounds = true
     
         return cell
