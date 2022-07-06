@@ -15,27 +15,49 @@ class SampleViewController: UIViewController, ChartViewDelegate {
   @IBOutlet weak var monthlyLabel: UILabel!
   @IBOutlet weak var higheshContainer: UIView!
   @IBOutlet weak var lowestContainer: UIView!
+  @IBOutlet weak var highGlucoseValue: UILabel!
+  @IBOutlet weak var lowGlucoseValue: UILabel!
   
-  lazy var lineChartView: LineChartView = {
-    let chartView = LineChartView()
-    chartView.backgroundColor = .white
-    chartView.rightAxis.enabled = false
-    
+  private var allGlucoseValue: [GulaDarah] = []
+  var circleColor = [NSUIColor]()
+  
+  func colorPicker(value : Double) -> NSUIColor {
+    if value > 130 {
+      return NSUIColor.red
+    }
+    else if value >= 70 && value <= 130 {
+      return NSUIColor.green
+    }
+    else {
+      return NSUIColor.black
+    }
+  }
+  
+    lazy var scatterChartView: ScatterChartView = {
+    let chartView = ScatterChartView()
+      chartView.backgroundColor = .white
+      chartView.rightAxis.enabled = false
     let yAxis = chartView.leftAxis
-    yAxis.labelFont = .boldSystemFont(ofSize: 12)
-    yAxis.setLabelCount(10, force: false)
-    yAxis.labelTextColor = .white
-    yAxis.axisLineColor = .white
-    yAxis.labelPosition = .outsideChart
-    
-    chartView.xAxis.labelPosition = .bottom
-    chartView.xAxis.labelFont = .boldSystemFont(ofSize: 12)
-    chartView.xAxis.setLabelCount(31, force: false)
-    chartView.xAxis.labelTextColor = .white
-    chartView.xAxis.axisLineColor = .systemBlue
-    
-    
-    chartView.animate(xAxisDuration: 1)
+      yAxis.labelFont = .boldSystemFont(ofSize: 12)
+      yAxis.setLabelCount(10, force: false)
+      yAxis.labelTextColor = .black
+      yAxis.axisLineColor = .black
+      yAxis.labelPosition = .outsideChart
+      yAxis.drawGridLinesEnabled = true
+      let floatValue: [CGFloat] = [1,25]
+      yAxis.gridLineDashPhase = CGFloat(0.2)
+      yAxis.gridLineDashLengths = floatValue
+      yAxis.gridLineWidth = CGFloat(1.5)
+    let botAxis = chartView.xAxis
+      botAxis.labelPosition = .bottom
+      botAxis.labelFont = .boldSystemFont(ofSize: 12)
+      botAxis.setLabelCount(5, force: false)
+      botAxis.labelTextColor = .black
+      botAxis.axisLineColor = .black
+      botAxis.drawGridLinesEnabled = false
+    //x axis lookslike integer
+    chartView.xAxis.granularityEnabled = true
+    chartView.xAxis.granularity = 1.0
     
     return chartView
   }()
@@ -50,47 +72,61 @@ class SampleViewController: UIViewController, ChartViewDelegate {
         monthlyLabel.clipsToBounds = true
         higheshContainer.layer.cornerRadius = 12
         lowestContainer.layer.cornerRadius = 12
+        let maxGlucoseData:GulaDarah = DBHelper.shared.getHighest()
+        let minGlucoseData:GulaDarah = DBHelper.shared.getLowest()
+        readWeekGlucose()
+        highGlucoseValue.text = String(maxGlucoseData.jumlah)
+        lowGlucoseValue.text = String(minGlucoseData.jumlah)
         navigationItem.title = "Glucose History"
         
-    view.addSubview(lineChartView)
-    lineChartView.centerInSuperview()
-    lineChartView.width(to: view)
-    lineChartView.heightToWidth(of: view)
+    view.addSubview(scatterChartView)
+    scatterChartView.centerInSuperview(offset: CGPoint(x: 0, y: 80), priority: .required, isActive: true , usingSafeArea: false)
+    scatterChartView.width(to: view)
+    scatterChartView.heightToWidth(of: view)
+    scatterChartView.legend.enabled = false
     setData()
     }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    readWeekGlucose()
+  }
 
   func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
       print(entry)
   }
   
   func setData() {
-    let set1 = LineChartDataSet(entries: yValues, label: "Glucose")
-    
-    set1.mode = .cubicBezier //remove sharp edge
-    set1.drawCirclesEnabled = false
-    set1.lineWidth = 3
-    set1.setColor(.red)
+
+    let set1 = ScatterChartDataSet(entries: yValue, label: "Glucose level")
+    set1.colors = valueColor
+    set1.shapeRenderer = CircleShapeRenderer()
     
     set1.drawHorizontalHighlightIndicatorEnabled = false
     set1.highlightColor = .blue
     
-    let data = LineChartData(dataSet: set1)
+    let data = ScatterChartData(dataSet: set1)
     data.setDrawValues(false)
     
-    lineChartView.data = data
+    scatterChartView.data = data
   }
   
-  let yValues: [ChartDataEntry] = [
-    ChartDataEntry(x: 2.0, y: 101.0),
-    ChartDataEntry(x: 3.0, y: 145.0),
-    ChartDataEntry(x: 4.0, y: 120.0),
-    ChartDataEntry(x: 5.0, y: 132.5),
-    ChartDataEntry(x: 6.0, y: 111.0),
-    ChartDataEntry(x: 7.0, y: 133.0),
-    ChartDataEntry(x: 8.0, y: 120.0),
-    ChartDataEntry(x: 9.0, y: 159.0),
-    ChartDataEntry(x: 10.0, y: 125.0)
-  ]
+  var yValue: [ChartDataEntry] = []
+  var valueColor = [NSUIColor]()
+  
+  func readWeekGlucose() {
+    allGlucoseValue = DBHelper.shared.getWeekGula(Date())
+    
+    for (index, _) in allGlucoseValue.enumerated() {
+      let dateFormatter = DateFormatter()
+      let date = allGlucoseValue[index].timestamp!
+      dateFormatter.dateFormat = "dd"
+      let dateResult = dateFormatter.string(from: date)
+      let tempData = ChartDataEntry(x: Double(dateResult)!, y: Double(allGlucoseValue[index].jumlah))
+      valueColor.append(colorPicker(value: Double(allGlucoseValue[index].jumlah)))
+      yValue.append(tempData)
+    }
+  }
+  
   
 }
 

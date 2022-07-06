@@ -672,7 +672,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C77567662R;
+				DEVELOPMENT_TEAM = SLXHN25QU8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DiaBeta/Info.plist;
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "This apps need to access your library";
@@ -707,7 +707,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C77567662R;
+				DEVELOPMENT_TEAM = SLXHN25QU8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DiaBeta/Info.plist;
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "This apps need to access your library";
